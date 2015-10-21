@@ -1,0 +1,27 @@
+/* Empty. Add your own CSS if you like */
+.nopadding{
+  padding: 0px;
+}
+
+.nomargin{
+  margin-top:0px !important;
+  margin-bottom: 0px !important;
+}
+
+.full{
+  width: 100%;
+}
+
+.circle{
+  border-radius: 50%;
+  background-color: #007aff;
+  color: white;
+  width: 40px;
+  height: 40px;
+  padding-top: 9px;
+  padding-left: 6px;
+}
+
+.song_list_item_title{
+  margin-top: 10px !important;
+}

@@ -1,0 +1,18 @@
+<ion-view view-title="{{data[0].title}}" ng-init="init();" cache-view="false">
+  <ion-content>
+    <style>
+      .song_content{
+        font-size: {{settings['font-size']}}px;
+        line-height: {{settings['line-height']}}px;
+        color: {{settings['color']}};
+        background-color: {{settings['background-color']}};
+        padding: 25px;
+      }
+      .song_content p{
+        margin-bottom: {{settings['line-height']+5}}px;
+      }
+
+    </style>
+    <div class="song_content" ng-bind-html="data[0].content"></div>
+  </ion-content>
+</ion-view>

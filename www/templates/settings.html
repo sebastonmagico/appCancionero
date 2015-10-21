@@ -1,0 +1,62 @@
+<ion-view view-title="Ajustes" ng-init="init();">
+  <ion-content>
+    <div class="card">
+      <div class="item item-text-wrap" style="font-size: {{mainSettings['font-size']}}px; line-height: {{mainSettings['line-height']}}px; background-color:{{mainSettings['background-color']}}; color: {{mainSettings['color']}};">
+        Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur.
+      </div>
+    </div>
+    <div class="list">
+
+      <div class="item">
+        <div class="row nopadding">
+          <div class="col col-50 nopadding">Tamaño</div>
+          <div class="col col-50 nopadding">
+            <div class="row nopadding">
+              <div class="col col-50 nopadding">
+                <button class="button button-full icon ion-plus-round nomargin button-positive" ng-click="changeStyle('more', 'font-size');"></button>
+              </div>
+              <div class="col col-50 nopadding">
+                <button class="button button-full icon ion-minus-round nomargin button-positive" ng-click="changeStyle('less', 'font-size');"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row nopadding">
+          <div class="col col-50 nopadding">Separación</div>
+          <div class="col col-50 nopadding">
+            <div class="row nopadding">
+              <div class="col col-50 nopadding">
+                <button class="button button-full icon ion-plus-round nomargin button-positive" ng-click="changeStyle('more', 'line-height');"></button>
+              </div>
+              <div class="col col-50 nopadding">
+                <button class="button button-full icon ion-minus-round nomargin button-positive" ng-click="changeStyle('less', 'line-height');"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row nopadding">
+          <div class="col col-50 nopadding">Fondo</div>
+          <div class="col col-50 nopadding">
+            <div class="row nopadding">
+              <div class="col col-50 nopadding">
+                <button class="button button-full nomargin button-light" ng-click="changeStyle('white', 'background-color');">Blanco</button>
+              </div>
+              <div class="col col-50 nopadding">
+                <button class="button button-full nomargin button-dark" ng-click="changeStyle('black', 'background-color');">Negro</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+  <div class="bar bar-footer">
+    <button class="button button-positive button-large full" ng-click="saveSettings();">
+      Guardar cambios
+    </button>
+  </div>
+</ion-view>

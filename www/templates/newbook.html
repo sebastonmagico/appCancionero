@@ -1,0 +1,23 @@
+<ion-view view-title="Cancionero" ng-init="init();">
+  <div class="bar bar-subheader item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input type="search" placeholder="Buscar" ng-model="toSearch">
+    </label>
+  </div>
+  <div></div>
+  <ion-content class="has-subheader">
+    <ion-list>
+      <ion-item ng-repeat="song in mainData">
+        <div class="row nopadding" ng-click="getDetail({{song.id}});">
+          <div class="col col-20 nopadding">
+            <div class="circle">{{song.id}}</div>
+          </div>
+          <div class="col col-80 nopadding">
+            <h2 class="song_list_item_title">{{song.title}}</h2>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
