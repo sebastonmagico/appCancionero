@@ -1,8 +1,12 @@
-songbookApp.controller('NewbookDetailCtrl', function($scope, $ionicPopup, $timeout, newBook, $stateParams, mainSettings) {
+songbookApp.controller('NewbookDetailCtrl', function($scope, $ionicPopup, $timeout, newBook, $stateParams, mainSettings, $state) {
 
     $scope.init = function(){
       $scope.data = newBook.findByID($stateParams.id);
       $scope.settings = mainSettings.get();
+    };
+
+    $scope.goToSettings = function(){
+      $state.go('app.settings');
     };
 
     $scope.showAlert = function() {
@@ -14,9 +18,5 @@ songbookApp.controller('NewbookDetailCtrl', function($scope, $ionicPopup, $timeo
         console.log('Alert de confirmación cerrado');
       });
     };
-
-
-
-
 
 });

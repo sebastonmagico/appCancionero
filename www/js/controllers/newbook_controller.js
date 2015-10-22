@@ -12,6 +12,7 @@ songbookApp.controller('NewbookCtrl', function($scope, $ionicPopup, $timeout, ne
         $ionicLoading.show({
           template: 'Buscando...'
         });
+
         //Filtra los resultados
         if($scope.toSearch == ''){
           $scope.mainData = newBook.getAll();

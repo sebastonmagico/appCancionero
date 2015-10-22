@@ -10,7 +10,11 @@ var songbookApp = angular.module("songbookApp", [
   'ionic.utils',
   'ngResource']);
 
-//var songbookServices = angular.module('songbookApp.services', []);
+songbookApp.config(function($ionicConfigProvider) {
+  // remove back button previous title text
+  // use unicode em space characters to increase touch target area size of back button
+  $ionicConfigProvider.backButton.previousTitleText(false).text('Atrás');
+});
 
 
 songbookApp.run(function($ionicPlatform) {

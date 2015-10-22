@@ -31,6 +31,7 @@ songbookApp .config(function($stateProvider, $urlRouterProvider) {
     })
 
     .state('app.newbookdetail', {
+      cache: false,
       url: '/newbookdetail/:id',
       views: {
         'menuContent': {

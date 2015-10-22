@@ -1,4 +1,7 @@
 <ion-view view-title="{{data[0].title}}" ng-init="init();" cache-view="false">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear ion-gear-a" ng-click="goToSettings();"></button>
+  </ion-nav-buttons>
   <ion-content>
     <style>
       .song_content{

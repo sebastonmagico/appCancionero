@@ -26,20 +26,34 @@ songbookApp.controller('SettingsCtrl', function($scope, $ionicPopup, $timeout, m
       }
     };
 
-    $scope.showAlert = function() {
+    $scope.showAlert = function(title, content) {
       var alertPopup = $ionicPopup.alert({
-        title: 'Éxito!',
-        template: 'Configuración guardada correctamente'
+        title: title,
+        template: content
       });
-      alertPopup.then(function(res) {
-        console.log('Alert de confirmación cerrado');
+    };
+
+    $scope.showConfirm = function() {
+      var confirmPopup = $ionicPopup.confirm({
+        title: 'Atención',
+        template: 'Tus cambios no se han guardado y se perderán al abandonar esta pantalla.'
+      });
+      confirmPopup.then(function(res) {
+        if(res) {
+          console.log('You are sure');
+        } else {
+          console.log('You are not sure');
+        }
       });
     };
 
     $scope.saveSettings = function(){
       mainSettings.set($scope.mainSettings);
-      $scope.showAlert();
     };
+
+    $scope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+      $scope.saveSettings();
+    });
 
 
 
