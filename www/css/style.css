@@ -3,6 +3,10 @@
   padding: 0px;
 }
 
+.nopaddinglist .item-content{
+  padding: 16px !important;
+}
+
 .nomargin{
   margin-top:0px !important;
   margin-bottom: 0px !important;
@@ -24,4 +28,8 @@
 
 .song_list_item_title{
   margin-top: 10px !important;
+}
+.bookmarked{
+  text-align: center;
+  margin-top: 10px;
 }

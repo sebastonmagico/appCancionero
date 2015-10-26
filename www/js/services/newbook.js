@@ -1,6 +1,6 @@
 angular.module('ionic.utils', [])
 
-  .factory('newBook', ['$window', function($window) {
+  .factory('newBook', ['$window', function($window, localstorage) {
     var data = [
       {
         "id": 1,
@@ -579,6 +579,32 @@ angular.module('ionic.utils', [])
           }
         });
         return res;
+      },
+      findByName: function(name){
+        var res = [];
+        angular.forEach(data,function(obj){
+
+        });
+        name = name.toUpperCase();
+        angular.forEach(data, function(obj) {
+          if( obj.title.toUpperCase().indexOf(name) >= 0 ) res.push(obj);
+        });
+        return res;
+      },
+      getBookmarks: function(){
+        var res = [];
+        var bookmarks = localstorage.getObject('bookmarks');
+
+        angular.forEach(data, function(obj){
+          angular.forEach(bookmarks, function(b){
+            if(b == obj.id){
+              res.push(obj);
+            }
+          })
+        });
+
+        return res;
+
       }
     }
   }]);

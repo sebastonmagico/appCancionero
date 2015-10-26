@@ -14,6 +14,24 @@ songbookApp.factory('mainSettings', ['localstorage', function(localstorage) {
           }
         }
         return current;
+      },
+
+      getBookmarks: function(){
+        var data = localstorage.getObject('bookmarks');
+        if(angular.equals(data, {})){
+          return []
+        }
+        else{
+          return data;
+        }
+      },
+      deleteBookmark: function(id){
+
+      },
+      saveBookmarks: function(obj){
+        localstorage.setObject('bookmarks', obj);
+        return true;
       }
+
     }
   }]);

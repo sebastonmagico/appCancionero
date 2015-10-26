@@ -7,16 +7,21 @@
   </div>
   <div></div>
   <ion-content class="has-subheader">
-    <ion-list>
-      <ion-item ng-repeat="song in mainData">
+    <ion-list  can-swipe="true">
+      <ion-item ng-repeat="song in mainData" class="nopaddinglist">
         <div class="row nopadding" ng-click="getDetail({{song.id}});">
           <div class="col col-20 nopadding">
             <div class="circle">{{song.id}}</div>
           </div>
-          <div class="col col-80 nopadding">
+          <div class="col col-70 nopadding">
             <h2 class="song_list_item_title">{{song.title}}</h2>
           </div>
+          <div class="col col-10 nopadding bookmarked">
+            <i class="ion-heart " data-pack="default" data-tags="love" ng-show="isBookmark(song.id)"></i>
+          </div>
         </div>
+        <ion-option-button class="button-positive" ng-click="setBookmark(song.id)" ng-show="!isBookmark(song.id)">Marcar favorito</ion-option-button>
+        <ion-option-button class="button" ng-show="isBookmark(song.id)" ng-click="removeBookmark(song.id)">Eliminar favorito</ion-option-button>
       </ion-item>
     </ion-list>
   </ion-content>

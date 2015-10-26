@@ -1,0 +1,19 @@
+<ion-view view-title="Favoritos" ng-init="init();">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="song in mainData" class="nopaddinglist">
+        <div class="row nopadding" ng-click="getDetail({{song.id}});">
+          <div class="col col-20 nopadding">
+            <div class="circle">{{song.id}}</div>
+          </div>
+          <div class="col col-70 nopadding">
+            <h2 class="song_list_item_title">{{song.title}}</h2>
+          </div>
+          <div class="col col-10 nopadding bookmarked">
+            <i class="ion-heart " data-pack="default" data-tags="love"></i>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

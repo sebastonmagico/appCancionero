@@ -30,6 +30,16 @@ songbookApp .config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
+    .state('app.bookmarks', {
+      url: '/bookmarks',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/bookmarks.html',
+          controller: 'BookmarksCtrl'
+        }
+      }
+    })
+
     .state('app.newbookdetail', {
       cache: false,
       url: '/newbookdetail/:id',
