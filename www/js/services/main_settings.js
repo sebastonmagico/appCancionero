@@ -9,8 +9,7 @@ songbookApp.factory('mainSettings', ['localstorage', function(localstorage) {
           return {
             "font-size": 16,
             "line-height": 20,
-            "background-color": "white",
-            "color": "#444"
+            "theme": ""
           }
         }
         return current;

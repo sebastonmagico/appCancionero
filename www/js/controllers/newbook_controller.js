@@ -57,6 +57,10 @@ songbookApp.controller('NewbookCtrl', function($scope, $ionicPopup, $timeout, ne
       return utils.in_array(songID, mainSettings.getBookmarks());
     };
 
+    $scope.resetSearch = function(){
+      $scope.toSearch = "";
+    };
+
     $scope.showAlert = function() {
       var alertPopup = $ionicPopup.alert({
         title: 'Éxito!',

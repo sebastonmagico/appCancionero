@@ -5,6 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 
+var ionicUtilsVar = angular.module('ionic.utils', []);
 var songbookApp = angular.module("songbookApp", [
   'ionic',
   'ionic.utils',

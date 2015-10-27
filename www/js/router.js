@@ -31,6 +31,7 @@ songbookApp .config(function($stateProvider, $urlRouterProvider) {
     })
 
     .state('app.bookmarks', {
+      cache: false,
       url: '/bookmarks',
       views: {
         'menuContent': {

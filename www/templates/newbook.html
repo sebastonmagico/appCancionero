@@ -1,9 +1,10 @@
 <ion-view view-title="Cancionero" ng-init="init();">
   <div class="bar bar-subheader item-input-inset">
-    <label class="item-input-wrapper">
+    <div class="item-input-wrapper">
       <i class="icon ion-ios-search placeholder-icon"></i>
       <input type="search" placeholder="Buscar" ng-model="toSearch">
-    </label>
+      <i class="icon ion-close-circled placeholder-icon" ng-show="toSearch.length > 0" ng-click="resetSearch();"></i>
+    </div>
   </div>
   <div></div>
   <ion-content class="has-subheader">

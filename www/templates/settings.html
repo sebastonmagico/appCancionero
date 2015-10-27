@@ -1,7 +1,7 @@
 <ion-view view-title="Ajustes" ng-init="init();">
   <ion-content>
     <div class="card">
-      <div class="item item-text-wrap" style="font-size: {{mainSettings['font-size']}}px; line-height: {{mainSettings['line-height']}}px; background-color:{{mainSettings['background-color']}}; color: {{mainSettings['color']}};">
+      <div class="item item-text-wrap" style="font-size: {{mainSettings['font-size']}}px; line-height: {{mainSettings['line-height']}}px;">
         Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur.
       </div>
     </div>
@@ -39,14 +39,14 @@
       </div>
       <div class="item">
         <div class="row nopadding">
-          <div class="col col-50 nopadding">Fondo</div>
+          <div class="col col-50 nopadding">Tema</div>
           <div class="col col-50 nopadding">
             <div class="row nopadding">
               <div class="col col-50 nopadding">
-                <button class="button button-full nomargin button-light" ng-click="changeStyle('white', 'background-color');">Blanco</button>
+                <button class="button button-full nomargin button-light" ng-click="changeTheme('cleantheme');">Blanco</button>
               </div>
               <div class="col col-50 nopadding">
-                <button class="button button-full nomargin button-dark" ng-click="changeStyle('black', 'background-color');">Negro</button>
+                <button class="button button-full nomargin button-dark" ng-click="changeTheme('darktheme');">Negro</button>
               </div>
             </div>
           </div>

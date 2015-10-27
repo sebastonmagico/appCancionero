@@ -1,6 +1,6 @@
 <ion-view view-title="Favoritos" ng-init="init();">
   <ion-content>
-    <ion-list>
+    <ion-list can-swipe="true">
       <ion-item ng-repeat="song in mainData" class="nopaddinglist">
         <div class="row nopadding" ng-click="getDetail({{song.id}});">
           <div class="col col-20 nopadding">
@@ -13,7 +13,10 @@
             <i class="ion-heart " data-pack="default" data-tags="love"></i>
           </div>
         </div>
+        <ion-option-button class="button" ng-click="removeBookmark(song.id)">Eliminar favorito</ion-option-button>
       </ion-item>
+
     </ion-list>
+    <div class="noresults" ng-if="mainData.length == 0"><h4>No hay elementos para mostrar</h4></div>
   </ion-content>
 </ion-view>

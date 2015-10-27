@@ -30,6 +30,7 @@
     <script src="js/services/utils.js"></script>
 
     <!-- Controllers -->
+    <script src="js/controllers/main_controller.js"></script>
     <script src="js/controllers/settings_controller.js"></script>
     <script src="js/controllers/newbook_controller.js"></script>
     <script src="js/controllers/newbook_detail_controller.js"></script>
@@ -37,7 +38,7 @@
 
   </head>
 
-  <body ng-app="songbookApp">
+  <body ng-app="songbookApp" ng-controller="MainCtrl" class="{{mainSettings.theme}}">
     <ion-nav-view></ion-nav-view>
   </body>
 </html>

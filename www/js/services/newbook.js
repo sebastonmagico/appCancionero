@@ -1,6 +1,5 @@
-angular.module('ionic.utils', [])
-
-  .factory('newBook', ['$window', function($window, localstorage) {
+ionicUtilsVar
+  .factory('newBook', ['localstorage', function(localstorage) {
     var data = [
       {
         "id": 1,
@@ -594,6 +593,10 @@ angular.module('ionic.utils', [])
       getBookmarks: function(){
         var res = [];
         var bookmarks = localstorage.getObject('bookmarks');
+
+        if(angular.equals({}, bookmarks)){
+          return res;
+        }
 
         angular.forEach(data, function(obj){
           angular.forEach(bookmarks, function(b){

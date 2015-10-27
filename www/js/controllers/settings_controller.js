@@ -1,6 +1,7 @@
-songbookApp.controller('SettingsCtrl', function($scope, $ionicPopup, $timeout, mainSettings) {
+songbookApp.controller('SettingsCtrl', function($scope, $ionicPopup, $timeout, mainSettings, $rootScope) {
 
     $scope.init = function(){
+      var test = $rootScope.mainSettings;
       $scope.mainSettings = mainSettings.get();
     };
 
@@ -13,15 +14,6 @@ songbookApp.controller('SettingsCtrl', function($scope, $ionicPopup, $timeout, m
 
         case "less":
           $scope.mainSettings[type]= $scope.mainSettings[type] - 1;
-              break;
-
-        case "white":
-          $scope.mainSettings['background-color']= "white";
-          $scope.mainSettings['color']= '#444';
-              break;
-        case "black":
-          $scope.mainSettings['background-color']= "black";
-          $scope.mainSettings['color']= 'white';
               break;
       }
     };
@@ -54,6 +46,12 @@ songbookApp.controller('SettingsCtrl', function($scope, $ionicPopup, $timeout, m
     $scope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
       $scope.saveSettings();
     });
+
+    $scope.changeTheme= function(theme){
+      $scope.mainSettings.theme = theme;
+      mainSettings.set($scope.mainSettings);
+      $rootScope.mainSettings = mainSettings.get();
+    }
 
 
 
