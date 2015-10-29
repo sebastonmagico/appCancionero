@@ -1,4 +1,4 @@
-songbookApp.factory('utils', ['mainSettings', 'localstorage', function(mainSettings, localstorage) {
+songbookApp.factory('utils', ['mainSettings', 'localstorage', '$q','$rootScope', function(mainSettings, localstorage,$q, $rootScope) {
     return {
       in_array: function(elem, array){
         var counter = 0;
@@ -8,6 +8,9 @@ songbookApp.factory('utils', ['mainSettings', 'localstorage', function(mainSetti
           }
         });
         return counter > 0 ? true :  false;
+      },
+      getRandom: function(init, end){
+        return Math.floor((Math.random() * end) + init);
       }
     }
   }]);

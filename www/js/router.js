@@ -52,6 +52,17 @@ songbookApp .config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
+    .state('app.home', {
+      cache: false,
+      url: '/home',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/home.html',
+          controller: 'HomeCtrl'
+        }
+      }
+    })
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/settings');
+  $urlRouterProvider.otherwise('/app/home');
 });

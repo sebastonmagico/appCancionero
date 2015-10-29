@@ -875,7 +875,7 @@ ionicUtilsVar
       },
       {
         "id":175,
-        "title": "A ti, el Alfa y la Omenga",
+        "title": "A ti, el Alfa y la Omega",
         "content": "<p>A Ti, el Alfa y la Omega<br>El principio y el fin,<br>Y el gran “Yo Soy”, me rindo.</p><p>A Ti, el Todopoderoso<br>El que es y que será<br>Y el gran “Yo Soy”, me entrego.</p><p>Yo quiero que gobiernes mi vida<br>Me doy en sacrificio a Ti.<br>Yo quiero que Tú ordenes mi caminar<br>Que siempre viva en Tu voluntad.</p>"
       },
       {
@@ -1166,7 +1166,7 @@ ionicUtilsVar
       {
         "id": 233,
         "title": "¿Cómo podré dejar de alabar?",
-        "content":"<p>Una y otra vez suena en mi ser, se oye su canción.<br>Puedo tormentas ver, me mantengo en pie,<br>En la Roca estoy.</p><p>¿Cómo podré dejar de alabar?<br>¿Cómo podré dar expresión<br>a lo asombroso de Tu amor?<br>¿Cómo impedir Tu nombre gritar?<br>Saber que me ama el Rey<br>hace mi corazón responder.</p><p>Mi voz se alzará en la oscuridad.<br>Vivo está mi Salvador.<br>Tú velarás por mí y ando junto a Ti<br>Cantando esta canción</p><p>¿Cómo podré dejar de alabar?<br>¿Cómo podré dar expresión<br>a lo asombroso de Tu amor?<br>¿Cómo impedir Tu nombre gritar?<br>Saber que me ama el Rey<br>hace mi corazón responder.</p><p>Cantaré en la inquietud y al ganar,<br>Cantaré cuando de traspiés, si me vuelvo a caer.<br>Cantaré porque allí estás Tú, me sostendrás.<br>Cantaré porque me oyes Dios, cuando clamo en oración.<br>Con mi último aliento se que lo haré,<br>Rodeando Tu Trono, con los santos cantaré.</p><p>¿Cómo podré dejar de alabar?<br>¿Cómo podré dar expresión<br>a lo asombroso de Tu amor?<br>¿Cómo impedir Tu nombre gritar?<br>Saber que me ama el Rey<br>hace mi corazón responder.</p>"
+        "content":"<p>Una y otra vez suena en mi ser, se oye su canción.<br>Puedo tormentas ver, me mantengo en pie,<br>En la Roca estoy.</p><p>¿Cómo podré dejar de alabar?<br>¿Cómo podré dar expresión<br>a lo asombroso de Tu amor?<br>¿Cómo impedir Tu nombre gritar?<br>Saber que me ama el Rey<br>hace mi corazón responder.</p><p>Mi voz se alzará en la oscuridad.<br>Vivo está mi Salvador.<br>Tú velarás por mí y ando junto a Ti<br>Cantando esta canción</p><p>¿Cómo podré dejar de alabar?<br>¿Cómo podré dar expresión<br>a lo asombroso de Tu amor?<br>¿Cómo impedir Tu nombre gritar?<br>Saber que me ama el Rey<br>hace mi corazón responder.</p><p>Cantaré en la inquietud y al ganar,<br>Cantaré cuando de traspiés, si me vuelvo a caer.<br>Cantaré porque allí estás Tú, me sostendrás.<br>Cantaré porque me oyes Dios, cuando clamo en oración.<br>Con mi último aliento se que lo haré,<br>Rodeando Tu Trono, con los santos cantaré.</p><p>¿Cómo podré dejar de alabar?<br>¿Cómo podré dar expresión<br>a lo asombroso de Tu amor?<br>¿Cómo impedir Tu nombre gritar?<br>Saber que me ama el Rey<br>hace mi corazón responder.</p>",
       }
     ];
     return {

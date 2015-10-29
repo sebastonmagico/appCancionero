@@ -141,3 +141,123 @@
   -webkit-animation: fadeOut 0.3s;
   animation: fadeOut 0.3s;
 }
+
+/* Home */
+.homeImage{
+  width: 100%;
+  min-height: 250px;
+  padding-top: 30px;
+  text-align: center;
+  color: white;
+}
+
+.homeBack1{
+  background: url(/img/image1.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.homeBack2{
+  background: url(/img/image2.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.homeBack3{
+  background: url(/img/image3.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.homeBack4{
+  background: url(/img/image4.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.homeBack5{
+  background: url(/img/image5.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.homeBack6{
+  background: url(/img/image6.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.homeBack7{
+  background: url(/img/image7.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.homeBack8{
+  background: url(/img/image8.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.homeBack9{
+  background: url(/img/image9.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.homeBack10{
+  background: url(/img/image10.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.homeCircle{
+  border-radius: 50%;
+  background-color: #007aff;
+  color: white;
+  width: 100px;
+  height: 100px;
+  padding-top: 36px;
+  text-align: center;
+  margin: 0px auto 15px auto;
+  display: block;
+  font-size: 2.7em;
+
+}
+
+.homeSubtitle{
+  margin-bottom: 10px;
+  background-color:rgba(0, 0, 0, 0.3);
+  padding: 3px 7px;
+  display: inline-block;
+}
+
+.homeTitle h3{
+  color: white;
+  background-color:rgba(0, 0, 0, 0.3);
+  padding: 3px 7px;
+  display: inline-block;
+}
+
+
+

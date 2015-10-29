@@ -1,0 +1,10 @@
+<ion-view view-title="Inicio" ng-init="init();">
+  <div></div>
+  <ion-content>
+    <div class="homeImage animated fadeIn {{randomClass}}" ng-click="goToSong(randomSong.id);" ng-if="setted">
+      <div class="homeSubtitle" ng-show="setted">Sugerencia</div>
+      <div class="homeCircle" ng-show="setted">{{randomSong.id}}</div>
+      <div class="homeTitle"ng-show="setted"><h3>{{randomSong.title}}</h3></div>
+    </div>
+  </ion-content>
+</ion-view>
