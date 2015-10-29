@@ -1,4 +1,4 @@
-songbookApp.controller('NewbookCtrl', function($scope, $ionicPopup, $timeout, newBook, $state, $ionicLoading, mainSettings, $ionicListDelegate) {
+songbookApp.controller('NewbookCtrl', function($scope, $ionicPopup, $timeout, newBook, $state, $ionicLoading, mainSettings, $ionicListDelegate, $ionicScrollDelegate) {
 
     $scope.init = function(){
       $ionicLoading.show({
@@ -13,10 +13,6 @@ songbookApp.controller('NewbookCtrl', function($scope, $ionicPopup, $timeout, ne
           $ionicLoading.hide();
         }, 100)
       })
-
-
-
-
     };
 
     $scope.$watch('toSearch', function() {
@@ -33,6 +29,7 @@ songbookApp.controller('NewbookCtrl', function($scope, $ionicPopup, $timeout, ne
           newBook.getAll().then(function(data){
             setTimeout(function(){
               $scope.mainData = data.data;
+              $ionicScrollDelegate.scrollTop();
               $ionicLoading.hide();
             }, 100);
 
@@ -42,12 +39,14 @@ songbookApp.controller('NewbookCtrl', function($scope, $ionicPopup, $timeout, ne
           if(!isNaN( parseInt($scope.toSearch))){
             newBook.findByID($scope.toSearch).then(function(data){
               $scope.mainData = data.data;
+              $ionicScrollDelegate.scrollTop();
               $ionicLoading.hide();
             })
           }
           else{
             newBook.findByName($scope.toSearch).then(function(data){
               $scope.mainData = data.data;
+              $ionicScrollDelegate.scrollTop();
               $ionicLoading.hide();
             });
           }
@@ -61,12 +60,16 @@ songbookApp.controller('NewbookCtrl', function($scope, $ionicPopup, $timeout, ne
     };
 
     $scope.setBookmark = function(songID){
+      //Tenemos el cacheo activado en esta página, por lo que siempre hay que actualizar
+      //la info de los favoritos antes y después
+      $scope.bookmarks = mainSettings.getBookmarks();
       $scope.bookmarks.push(songID);
       mainSettings.saveBookmarks($scope.bookmarks);
       $ionicListDelegate.closeOptionButtons();
     };
 
     $scope.removeBookmark = function(songID){
+      $scope.bookmarks = mainSettings.getBookmarks();
       var index = $scope.bookmarks.indexOf(songID);
       if (index > -1) {
         $scope.bookmarks.splice(index, 1);

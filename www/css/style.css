@@ -43,6 +43,11 @@
   font-size: 25px !important;
 }
 
+.centeredIcon{
+  text-align: center;
+  margin: 0px auto !important;
+}
+
 
 /*Dark theme*/
 .darktheme .menu{
