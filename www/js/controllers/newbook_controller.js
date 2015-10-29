@@ -1,15 +1,27 @@
-songbookApp.controller('NewbookCtrl', function($scope, $ionicPopup, $timeout, newBook, $state, $ionicLoading, mainSettings, utils, $ionicListDelegate) {
+songbookApp.controller('NewbookCtrl', function($scope, $ionicPopup, $timeout, newBook, $state, $ionicLoading, mainSettings, $ionicListDelegate) {
 
     $scope.init = function(){
-      $scope.mainData = newBook.getAll();
-      $scope.toSearch = null;
-      $scope.bookmarks = mainSettings.getBookmarks();
-      $ionicListDelegate.closeOptionButtons();
+      $ionicLoading.show({
+        template: 'Cargando...'
+      });
+      newBook.getAll().then(function(data){
+        setTimeout(function() {
+          $scope.toSearch = null;
+          $scope.bookmarks = mainSettings.getBookmarks();
+          $scope.mainData = data.data;
+          $ionicListDelegate.closeOptionButtons();
+          $ionicLoading.hide();
+        }, 100)
+      })
+
+
+
+
     };
 
     $scope.$watch('toSearch', function() {
-
       if($scope.toSearch != null){
+
         //Muestra loader
         $ionicLoading.show({
           template: 'Buscando...'
@@ -17,19 +29,29 @@ songbookApp.controller('NewbookCtrl', function($scope, $ionicPopup, $timeout, ne
 
         //Filtra los resultados
         if($scope.toSearch == ''){
-          $scope.mainData = newBook.getAll();
+
+          newBook.getAll().then(function(data){
+            setTimeout(function(){
+              $scope.mainData = data.data;
+              $ionicLoading.hide();
+            }, 100);
+
+          });
         }
         else{
           if(!isNaN( parseInt($scope.toSearch))){
-            $scope.mainData = newBook.findByID($scope.toSearch);
+            newBook.findByID($scope.toSearch).then(function(data){
+              $scope.mainData = data.data;
+              $ionicLoading.hide();
+            })
           }
           else{
-            $scope.mainData = newBook.findByName($scope.toSearch);
+            newBook.findByName($scope.toSearch).then(function(data){
+              $scope.mainData = data.data;
+              $ionicLoading.hide();
+            });
           }
         }
-
-        //Oculta el loader
-        $ionicLoading.hide();
       }
     });
 
@@ -54,7 +76,7 @@ songbookApp.controller('NewbookCtrl', function($scope, $ionicPopup, $timeout, ne
     };
 
     $scope.isBookmark = function(songID){
-      return utils.in_array(songID, mainSettings.getBookmarks());
+      return newBook.isBookmark(songID);
     };
 
     $scope.resetSearch = function(){

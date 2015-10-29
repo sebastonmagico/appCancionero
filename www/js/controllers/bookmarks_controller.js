@@ -1,9 +1,15 @@
 songbookApp.controller('BookmarksCtrl', function($scope, $ionicPopup, $timeout, newBook, $state, $ionicLoading, mainSettings, utils, $ionicListDelegate) {
 
     $scope.init = function(){
-      $scope.mainData = newBook.getBookmarks();
-      $scope.bookmarks = mainSettings.getBookmarks();
-      $ionicListDelegate.closeOptionButtons();
+      $ionicLoading.show({
+        template: 'Cargando...'
+      });
+      newBook.getBookmarks().then(function(data){
+        $scope.mainData = data.data;
+        $scope.bookmarks = mainSettings.getBookmarks();
+        $ionicListDelegate.closeOptionButtons();
+        $ionicLoading.hide();
+      })
     };
 
     $scope.getDetail = function(songID){
@@ -18,7 +24,13 @@ songbookApp.controller('BookmarksCtrl', function($scope, $ionicPopup, $timeout, 
       }
       mainSettings.saveBookmarks($scope.bookmarks);
       $ionicListDelegate.closeOptionButtons();
-      $scope.mainData = newBook.getBookmarks();
+      $ionicLoading.show({
+        template: 'Cargando...'
+      });
+      newBook.getBookmarks().then(function(data){
+        $scope.mainData = data.data;
+        $ionicLoading.hide();
+      });
     };
 
     $scope.showAlert = function() {

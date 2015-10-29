@@ -1,7 +1,7 @@
 <ion-view view-title="Favoritos" ng-init="init();">
   <ion-content>
     <ion-list can-swipe="true">
-      <ion-item ng-repeat="song in mainData" class="nopaddinglist">
+      <ion-item ng-repeat="song in mainData" class="nopaddinglist songItem">
         <div class="row nopadding" ng-click="getDetail({{song.id}});">
           <div class="col col-20 nopadding">
             <div class="circle">{{song.id}}</div>
@@ -17,6 +17,6 @@
       </ion-item>
 
     </ion-list>
-    <div class="noresults" ng-if="mainData.length == 0"><h4>No hay elementos para mostrar</h4></div>
+    <div class="noresults songItem" ng-if="mainData.length == 0"><h4>No hay elementos para mostrar</h4></div>
   </ion-content>
 </ion-view>

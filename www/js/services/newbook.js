@@ -1,5 +1,5 @@
 ionicUtilsVar
-  .factory('newBook', ['localstorage', function(localstorage) {
+  .factory('newBook', ['localstorage', '$q','utils', function(localstorage, $q, utils) {
     var data = [
       {
         "id": 1,
@@ -502,9 +502,612 @@ ionicUtilsVar
         "content": "<p>Mucho porque vivir,<br>Cristo tiene mucho que darte (2 veces)</p><p>Te da la paz, te da el amor,<br>te da la felicidad (2 veces)</p><p>Él tiene para ti,<br>lo que tú no has encontrado (2 veces)</p><p>Entrégale hoy tu ser,<br>y podrás apreciar la vida (2 veces)</p>"
       },
 
-
-
-
+      {
+        "id":101,
+        "title": "Nada es comparable a Ti, mi Señor",
+        "content": "<p>Nada es comparable a Ti, mi Señor.<br>Nada es codiciable como Tu favor.<br>Señor adorable te abro el corazón.<br>Nada es comparable a Ti, mi Señor.</p><p>Grande maravilla, celeste esplendor,<br>Gran Dios que te humillas por mi salvación.<br>Bondad inefable te abro el corazón.<br>Nada es comparable a Ti, mi Señor.</p><p>Cuando considero Tu humilde lección,<br>mi vida te ofrezco en adoración.<br>Amor sin medida, te abro el corazón.<br>Nada es comparable a Ti, mi Señor.</p><p>Manantial de vida, fuente de dulzor,<br>inundaste al mundo con Tu inmenso amor.<br>Bondad sin igual, te abro el corazón.<br>Nada es comparable a Ti, mi Señor.<p>"
+      },
+      {
+        "id":102,
+        "title": "No hay Dios tan grande como Tú",
+        "content": "<p>No hay Dios tan grande como Tú,<br>no lo hay, no lo hay (2 veces)<br>No hay Dios que pueda hacer las obras,<br>como las que haces Tú. (2 veces)</p><p>No es con espada, ni con ejército,<br>más con Tu Santo Espíritu (2 veces)<br>Y estas almas se salvarán (3 veces)<br>Por Tu Santo Espíritu.</p>"
+      },
+      {
+        "id":103,
+        "title": "Morando al abrigo del Señor",
+        "content": "<p>Morando al abrigo del Señor<br>tenemos seguridad.<br>Juntos ofrecemos al cantar<br>nuestra adoración, adoración,<br>adoración al Rey.</p><p>Agradecidos estamos a sus pies,<br>viviendo en Su amor.<br>Unimos nuestras voces al cantar<br>Digno, Digno,<br>Digno es el Señor.</p><p>Corazones limpios por Su amor,<br>alaban Su Santidad.<br>Guiados por Su Espíritu al cantar<br>Santo, Santo,<br>Santo es el Señor.</p>"
+      },
+      {
+        "id":104,
+        "title": "No lo que quiera ser",
+        "content": "<p>No lo que quiera ser, ni donde quiera ir,<br>pues ¿quién soy yo, Señor, mi camino a elegir?<br>Mi Dios escogerá, Él sabe lo mejor,<br>donde Él me mande yo iré.</p>"
+      },
+      {
+        "id":105,
+        "title": "Oh, amor de Dios brotando está",
+        "content": "<p>Oh, amor Dios, su inmensidad,<br>el hombre no podrá contar,<br>ni comprender la gran verdad<br>que Dios al mundo pudo amar.<br>El gran amor del Redentor<br>por siempre durará.<br>La gran canción de salvación<br>Su pueblo cantará.</p><p>Oh, amor de Dios brotando está<br>Inmensurable, eternal.<br>Por las edades durará.<br>Inagotable caudal.</p><p>Si fuera tinta todo el mar<br>y todo el cielo un gran papel,<br>y cada hombre un escritor,<br>y cada hoja un pincel,<br>nunca podrían describir<br>el gran amor de Dios<br>que al hombre pudo redimir<br>de su pecado atroz.</p>"
+      },
+      {
+        "id":106,
+        "title": "Oh deja que el Señor se mueva",
+        "content": "<p>Oh deja que el Señor se mueva<br>con su Espíritu de amor,<br>satisfaga hoy tu alma y corazón.<br>Entrégale lo que te pide<br>y su Espíritu vendrá sobre ti,<br>y vida nueva te dará.</p><p>Cristo, Cristo ven y llénanos.<br>Cristo, Cristo llénanos de Ti.</p><p>Alzamos nuestra voz con gozo,<br>nuestra alabanza a Ti;<br>con dulzura te entregamos nuestro ser.<br>Entrega toda tu tristeza<br>en el nombre de Jesús,<br>y abundante vida hoy tendrás en Él.</p>"
+      },
+      {
+        "id":107,
+        "title": "Ven y deléitate en el Señor",
+        "content": "<p>Oh, ven. Ven y deléitate en el Señor,<br>y Él te concederá las peticiones de tu corazón.</p><p>Confía solo en Él, y Él te dará.<br>Espera solo en Él, y Él hará</p>"
+      },
+      {
+        "id":108,
+        "title": "Oh Dios eterno, tu misericordia",
+        "content": "<p>Oh Dios eterno Tu misericordia<br>ni una sombra de duda tendrá,<br>tu compasión y bondad nunca fallan<br>y por los siglos El mismo serás.</p><p>Oh, Tu fidelidad. Oh, Tu fidelidad,<br> cada momento la veo en mi.<br>Nada me falta pues todo provees.<br>Grande Señor es Tu fidelidad.</p><p>La noche oscura, el sol y la luna,<br>las estaciones del año también,<br>unen sus voces cual fieles criaturas,<br>porque eres bueno por siempre eres fiel.</p><p>Tu me perdonas, me impartes el gozo,<br>tierno me guías por sendas de paz.<br>Eres mi fuerza, mi fe, mi reposo,<br>y por los siglos mi Padre serás.</p>"
+      },
+      {
+        "id":109,
+        "title": "Oh profundo amor de Cristo",
+        "content": "<p>Oh, profundo amor de Cristo,<br>vasto, inmerecido don.<br>Cuál océano infinito,<br>ya me inunda el corazón.<br>Me rodea, me sostiene,<br>la corriente de Su amor.<br>Llévame contínuamente<br>hacia el gozo del Señor.</p><p>Oh, profundo amor de Cristo,<br>Sus loores tributad,<br>pues su amor nos satisfizo<br>y no cambiará jamás.<br>Cómo cuida a sus amados<br>redimidos por Su cruz.<br>Comunión con Él gozamos<br>cuando andamos en la luz.</p><p>Oh, profundo amor de Cristo,<br>Único, supremo amor.<br>Cual un vasto mar bendito,<br>cual hogar al viador.<br>Oh, profundo amor de Cristo,<br>pura gloria es para mi,<br>pues me eleva, salvo y libre<br>hacia el cielo, hacia Ti.</p>"
+      },
+      {
+        "id":110,
+        "title": "Oh Señor, tú me sacaste del sitio donde vivía",
+        "content": "<p>Oh, Señor, Tú me sacaste<br>del sitio donde vivía,<br>me lavaste con Tu sangre,<br>me llenaste de Tu vida.</p><p>Vida nueva Tu me dabas,<br>en la cruz donde morías,<br>esa cruz, en el calvario,<br>donde Tu diste tu vida.</p><p>Haz de mi un vaso nuevo, Señor,<br>donde otros puedan beber, Señor,<br>beber de Tu agua viva,<br>agua que quita la sed. (2 veces)</p>"
+      },
+      {
+        "id":111,
+        "title": "Padre nuestro",
+        "content": "<p>Padre nuestro que estás en los cielos,<br>santificado sea tu nombre.<br>Que venga tu reino, que se haga tu voluntad,<br>tanto aquí en la tierra, como en el cielo.<br>El pan nuestro de cada día, dánoslo hoy también.<br>Y perdónanos nuestras deudas, como perdonamos <br>a nuestros deudores también.<br>Y no nos metas en tentación, más líbranos del <br>mal; porque tuyo es el reino, el poder y la gloria.<br>Por siempre, para siempre, por siempre.<br>Amén. Amén.<p>"
+      },
+      {
+        "id":112,
+        "title": "Padre, únenos",
+        "content": "<p>Padre, únenos. Padre, únenos.<br>Que el mundo crea que enviaste al Hijo.<br>Padre, únenos.</p>"
+      },
+      {
+        "id":113,
+        "title": "Para Ti quiero cantar",
+        "content": "<p>Para Ti, oh Señor, para Ti quiero cantar,<br>tengo gozo en mi alma cuando canto para Ti.//<br>Por tu grande amor eres lo máximo,<br>y mi alma se goza cuando canto para Ti.//<br>La, la, la....</p><p>Por tu grande amor eres lo máximo,<br>y mi alma se goza cuando canto para Ti.</p>"
+      },
+      {
+        "id":114,
+        "title": "Porque para siempre, oh Dios, tu misericordia es",
+        "content": "<p>Porque para siempre, oh Dios,<br>tu misericordia es (2 veces)<br>Más grande que el ancho mar,<br>más alta que el cielo está,<br>porque para siempre, oh Dios,<br>tu misericordia es.<br>Mejor que la vida es,<br>mi alma lo sabe bien,<br>porque para siempre, oh Dios,<br>tu misericordia es.</p>"
+      },
+      {
+        "id":115,
+        "title": "¿Por que se preocupa el hombre por el comer y el vestir?",
+        "content": "<p>¿Porqué se preocupa el hombre<br>por el comer y el vestir?<br>cómo si solo en su cuerpo <br>se reflejara el vivir.<br>Todos están preocupados<br>por el mucho poseer.<br>Solo se piensa en el lujo<br>y en colmarse de placer.</p><p>Mirad los lirios del campo<br>como crecen por doquier,<br>no se vistió como ellos<br>ni el más importante rey.<br>Mirad las aves del cielo<br>volando al ponerse el sol,<br>nunca se mueren de hambre<br>las alimenta el Señor.</p><p>Si Dios cuida de los seres<br>que para adorno creó<br>¿cómo no cuidará al hombre,<br>su obra de más valor?<br>Busquemos primeramente<br>en todo el Reino de Dios,<br>y todas las demás cosas<br>las añadirá Su amor.</p>"
+      },
+      {
+        "id":116,
+        "title": "Postrándonos ante Ti",
+        "content": "<p>Postrándonos ante Ti, Señor,<br>tu presencia lo llena todo,<br>los cielos no pueden contenerte,<br>ni tampoco el Universo,<br>pues ¿quién soy yo para servirte,<br>o para que me consideres?<br>eres Alfa y Omega, el Principio y el Fin,<br>Dios Todopoderoso que estás vestido de <br>majestad.</p><p>Majestad (4 veces)<br>Postrándonos ante Ti, Señor,<br>alzamos nuestras manos.</p>"
+      },
+      {
+        "id":117,
+        "title": "Pueblos todos, batid las manos",
+        "content": "<p>Pueblos todos, batid las manos,<br>alabad a Jehová con voz de júbilo (2 veces)<br>Porque Jehová el Altísimo es temible,<br>Rey grande sobre toda la tierra (2 veces)</p>"
+      },
+      {
+        "id":118,
+        "title": "Qué bueno es alabar al Señor",
+        "content": "<p>Que bueno es alabar al Señor<br>y cantar a Su Nombre (2 veces)<br>Anunciar por la mañana Su misericordia,<br>Su fidelidad cada noche (2 veces)</p>"
+      },
+      {
+        "id":119,
+        "title": "Qué hermosos son los pies del que trae salvacion",
+        "content": "<p>Que hermosos son los pies del que trae salvación, <br>anuncia paz y amor.<br>Felicidad proclama al alzar su voz.</p><p>Nuestro Dios reina hoy (3 veces)</p><p>Lugares de Jerusalén gritad de amor,<br>Dios nos salvó, salvó.<br>Dios trae consuelo a su pueblo rescató.</p><p>Toda la tierra ved la salvación de Dios,<br>Cristo es Señor, Señor.<br>Ante los pueblos su poder Él demostró</p>"
+      },
+      {
+        "id":120,
+        "title": "Que la gloria del Señor sea por siempre",
+        "content": "<p>Que la gloria del Señor sea por siempre,<br> que se goce su creación.</p><p>Al Señor cantaré con todo mi ser,<br>a Su nombre cantaré mientras viva yo.</p>"
+      },
+      {
+        "id":121,
+        "title": "Este es Jesús",
+        "content": "<p>¿Qué niño es este que se halla<br>en brazos de María?<br>Que ángeles anuncian ya<br>a pastores con alegría.</p><p>Este es Jesús, el Rey,<br>Eterno Dios y Redentor.<br>Calle la duda, pues,<br>el niño es el Mesías.</p><p>Al lado de corderos y asnos<br>yace Jesucristo,<br>más ángeles con dulce voz<br>sus alabanzas cantan.</p>"
+      },
+      {
+        "id":122,
+        "title": "Queremos ser un pueblo fuerte en Ti",
+        "content": "<p>Queremos ser un pueblo fuerte en Ti,<br>que nuestros ojos de tu amor no se separen.<br>Que nuestras vidas se rindan a tu servicio <br>siempre, Señor.</p><p>Danos tu fuerza para luchar, Señor,<br>y toma nuestros corazones solo para Ti,<br>y cámbialos, Señor con Tu amor.</p>"
+      },
+      {
+        "id":123,
+        "title": "Quiero alabarte",
+        "content": "<p>Quiero <b>alabarte</b> más y más aún.<br>Quiero <b>alabarte</b> más y más aún.<br>Buscar Tu voluntad, Tu gracia conocer,<br>quiero <b>alabarte</b>.</p><p>Las aves del cielo cantan para Ti.<br>Las flores del campo reflejan Tu poder.<br>Quiero cantar,<br>quiero levantar mis manos a Ti.</p><p>(<b>servirte</b>, <b>amarte</b>)</p>"
+      },
+      {
+        "id":124,
+        "title": "Quiero cantar una bella canción",
+        "content": "<p>Quiero cantar una bella canción<br>de un amigo que me transformó.<br>Quiero cantar una bella canción<br>de Aquel que mi vida cambió.</p><p>Es mi amigo Jesús (2 veces)<br>Él es Dios, Él es Rey,<br>es amor y verdad.<br>Sólo en Él encontré<br>esa paz que busqué.<br>Sólo en Él encontré la felicidad.</p><p>Quiero cantar una bella canción<br>de Jesús que el camino mostró.<br>Quiero cantar una bella canción<br>de Aquel que mi alma salvó.</p><p>Quiero que sepas que Cristo te ama,<br>te busca y te quiere ayudar,<br>de tu camino difícil y tu vida triste<br>te quiere sacar.</p>"
+      },
+      {
+        "id":125,
+        "title": "Quiero levantar mis manos ",
+        "content": "<p>Quiero levantar mis manos,<br>quiero levantar mi voz,<br>ofrecerte a Ti mi vida<br>en santidad y amor.<br>Padre, sólo a Ti te ofrezco<br>mi vida y mi corazón,<br>y me postro en Tu presencia<br>en adoración.</p><p>¡Hijo de Dios!, recibe hoy<br>toda la gloria,<br>la honra y el honor (2 veces)</p>"
+      },
+      {
+        "id":126,
+        "title": "Quiero llenar Tu trono de alabanza",
+        "content": "<p>Quiero llenar Tu trono de alabanza,<br> quiero llenar Tu trono de adoración,<br>quiero adorar y entrar en Tu presencia,<br>y proclamarte, Señor. (2 veces)</p>"
+      },
+      {
+        "id":127,
+        "title": "Regocíjate y canta",
+        "content": "<p>Regocíjate y canta,<br>oh moradora de Sión (2 veces)<br>Porque grande es (3 veces)<br>en medio de ti el Santo de Israel.</p><p>Regocíjate y canta,<br>iglesia amada del Señor (2 veces)<br>Porque grande es (3 veces)<br>en medio de ti el Espíritu de Dios.</p>"
+      },
+      {
+        "id":128,
+        "title": "Renuévame, Señor Jesús",
+        "content": "<p>Renuévame, Señor Jesús, ya no quiero ser igual.<br>Renuévame, Señor Jesús, haz en mí Tu voluntad.<br>Porque todo lo que hay dentro de mi<br>necesita ser cambiado, Señor.<br>Porque todo lo que hay dentro de mi corazón<br>necesita más de Ti. (2 veces)</p>"
+      },
+      {
+        "id":129,
+        "title": "Restaurarás el Santo Lugar",
+        "content": "<p>Restaurarás el Santo Lugar<br>y pondrás allí Tu habitación.<br>Te mostrarás poderoso Dios<br>en Tu amor me regocijo hoy. (2 veces)</p><p>Lo dilatado de Tu Imperio y Tu santa paz<br>los confines abarcarán,<br>y la creación entera nunca jamás gemirá<br>tus hijos se manifestarán.</p><p>Somos lugar santísimo, somos Tu habitación,<br>una nueva generación.<br>Que Tu gloria postrera lleve la iglesia de hoy.<br>Venga Tu Reino, Señor.</p>"
+      },
+      {
+        "id":130,
+        "title": "Rey de reyes",
+        "content": "<p>Rey de reyes, Señor de señores,<br>Gloria, Aleluya.<br>Cristo, Príncipe de Paz, Gloria, Aleluya.</p>"
+      },
+      {
+        "id":131,
+        "title": "Santo, Santo es el Señor",
+        "content": "<p>Santo, Santo es el Señor,<br>Todopoderoso. (2 veces)<br>Su Gloria llena la Tierra<br>Su Gloria llena la Tierra<br>Su Gloria llena la Tierra</p><p>¡Santo es el Señor!</p>"
+      },
+      {
+        "id":132,
+        "title": "Santo, Santo, Santo Señor",
+        "content": "<p>Santo, Santo, Santo Señor,<br> Todopoderoso.<br> Su gloria llena la Tierra. (2 veces)<br> Hosanna, Hosanna.<br>En las alturas. (2 veces)</p><p>Santo, Santo, Santo Señor,Todopoderoso.</p><p>Su gloria llena la Tierra.</p>"
+      },
+      {
+        "id":133,
+        "title": "Santo, Santo",
+        "content": "<p>Santo, Santo, Santo ,Santo,<br>Santo, Santo eres Tu, Señor Dios fuerte.<br>Nuestras vidas entregamos<br>como ofrenda a Ti, Señor.<br>Santo, Santo, Santo, Santo.</p><p>Padre amado, Padre amado<br>bendición es ser tus hijos, Padre amado,<br>nuestros labios te bendicen<br>en señal de nuestro amor.<br>Padre amado, Padre amado.</p><p>Jesucristo, Jesucristo,<br>nos salvaste por Tu Gracia, Jesucristo.<br>Nuestro corazón te damos<br>en señal de nuestro amor.<br>Jesucristo, Jesucristo.</p><p>Santo Espíritu, Santo Espíritu,<br>ven y llena nuestra vida, Santo Espíritu.<br>Nuestra alma te adora<br>en señal de nuestro amor.<br>Santo Espíritu, Santo Espíritu.</p><p>Santo, Santo, Santo, Santo....</p>"
+      },
+      {
+        "id":134,
+        "title": "Santo, Santo, Santo eres Tú",
+        "content": "<p>Santo, Santo, Santo eres Tú.<br>Reinas en majestad, sobre tierra y mar.<br>Tu gloria es declarada por la creación,<br>me uno hoy para cantar loor a nuestro Rey.</p><p>Cantando: Santo, Santo, Santo eres Tu.<br>Santo, Santo, Santo eres Tu.</p><p>Digno, Digno, Digno eres Rey.<br>Reinas con autoridad sobre las naciones.<br>Sus rodillas doblarán y confesarán<br>que Jesucristo es el Señor por la eternidad.</p><p>Cantando: Digno, Digno, Digno eres Rey.<br>Digno, Digno, Digno eres Rey.</p>"
+      },
+      {
+        "id":135,
+        "title": "Se exalta nuestro Dios entre el júbilo",
+        "content": "<p>Se exalta a nuestro Dios entre el júbilo;<br>Se exalta a nuestro Dios al sonar de la trompeta.<br>Se exalta a nuestro Dios entre el júbilo.<br>Con júbilo gritad a Él. (2 veces)</p><p>Con trompetas hay que celebrar.<br>Aplaudamos a nuestro Señor.</p><p>Se exalta a nuestro Dios (3 veces) Oh, sí.</p>"
+      },
+      {
+        "id":136,
+        "title": "Sé que no soy nada y del polvo nací",
+        "content": "<p>Sé que soy nada y del polvo nací;<br>pero Tu me amas y moriste por mí.<br>Ante la Cruz solo puedo exclamar:<br>soy de Ti. Soy de Ti.</p><p>Toma mis manos te pido,<br>Toma mis labios, te amo.<br>Toma mi vida, oh Padre<br>soy de Ti. Soy de Ti.</p><p>Cuando de rodillas te miro, Jesús,<br>veo Tu grandeza y mi pequeñez;<br>¿Qué puedo darte yo?, tan solo mi ser.<br>Soy de Ti. Soy de Ti.</p>"
+      },
+      {
+        "id":137,
+        "title": "Sendas Dios hará",
+        "content": "<p>Sendas Dios hará<br>donde piensas que no hay,<br>Él obra en maneras<br>que no podemos comprender.<br>Él me guiará, a su lado yo estaré.<br>Amor y fuerzas me dará,<br>un camino hará,<br>donde no lo hay.<br>Por caminos, en la soledad,<br>me guiará;<br>y agua en el desierto encontraré.<br>La tierra pasará,<br>Su Palabra eterna es.<br>¡Él hará algo nuevo hoy!.</p>"
+      },
+      {
+        "id":138,
+        "title": "Señor Jesús, tu conoces mi corazón",
+        "content": "<p>Señor Jesús, tu conoces mi corazón,<br>que tan lejos de Ti vagó en el pecar.<br>Tu Santa Ley me hizo comprender mi error,<br>y Tu Palabra mi perdición.<br>Creí que sólo pude andar por los caminos<br>de Tu Ley, y sin ayuda alcanzar Tu Majestad.<br>Más Tu Palabra me enseñó que mi pecado,<br>entre los dos, desde el principio<br>puso la separación.</p><p>Gracias, Señor, porque mi alma en Ti confié,<br>y misericordia en Tu Cruz hallé.<br>En Tu perdón renovaste todo mi ser,<br>y vida nueva en Ti encontré.<br>Ahora me queda por vivir<br>toda una vida en Tu amor,<br>siguiendo el camino que Tu Hijo mostró.<br>Fuerzas Tu siempre me darás<br>con Tu Palabra y dirección<br>y alabarte siempre podré,</p><p>¡Gracias, Señor!</p>"
+      },
+      {
+        "id":139,
+        "title": "Señor, llévame a tus atrios",
+        "content": "<p>Señor, llévame a Tus atrios,<br>al Lugar Santo, al Altar de Bronce.<br>¡Señor, Tu rostro quiero ver!<br>Pásame en la muchedumbre,<br>por donde el sacerdote canta,<br>tengo hambre y sed de justicia<br>y solo encuentro un lugar.<br>Llévame al Lugar Santísimo,<br>por la sangre del Cordero Redentor.<br>Llévame al Lugar Santísimo.<br>Tócame, límpiame. Heme aquí.</p>"
+      },
+      {
+        "id":140,
+        "title": "Señor, mi Dios",
+        "content": "<p>Señor, mi Dios, al contemplar los cielos,<br>el firmamento y las estrellas mil.<br>Al oír Tu voz en los potentes truenos,<br>y ver brillar al sol en su cenit.</p><p>Mi corazón entona esta canción:<br>¡Cuán grande eres, mi Señor! (2 veces)</p><p>Al recorrer los montes y los valles,<br>al ver las bellas flores al pasar,<br>al escuchar el canto de las aves,<br>y el murmurar del claro manantial.</p><p>Cuando me acuerdo del amor divino,<br>que desde el cielo al Salvador envió;<br>aquel Jesús que por salvarme vino,<br>y en una cruz sufrió por mí y murió.</p><p>Cuando el Señor me llame a Su presencia,<br>al dulce hogar, al cielo de esplendor,<br>le adoraré, cantando la grandeza<br>de Su poder y Su infinito amor.</p>"
+      },
+      {
+        "id":141,
+        "title": "Somos tu pueblo, Tú eres nuestro Dios",
+        "content": "<p>Somos tu pueblo, Tú eres nuestro Dios,<br>Tú nos escogiste.<br>En Jesucristo, Nuestro Salvador,<br>Tú nos redimiste.<br>Y nos envías hoy a proclamar,<br>el gran mensaje de la salvación.<br>Tú nos has puesto por sal y por luz,<br>como testigos vivos de Jesús.</p><p>Entre tinieblas de incredulidad,<br>el hombre se hunde,<br>en frustraciones, en su soledad,<br>todo incertidumbre.<br>Sólo Tú gracia puede transformar<br>su vida absurda llena de inquietud.<br>Sólo Jesús es camino y verdad,<br>Él es la vida en toda plenitud.</p> <p>Sin Tu poder y sin Tu dirección<br>vano es nuestro esfuerzo.<br>Haz que en Tus manos seamos, oh Señor,<br>fieles instrumentos.<br>Haya en nosotros un mismo sentir,<br>llénanos de Tu Espíritu de amor,<br>que sin temor podamos aceptar<br>el desafío del mundo de hoy.</p>"
+      },
+      {
+        "id":142,
+        "title": "Somos un pueblo",
+        "content": "<p>Somos un pueblo, pueblo adquirido por Dios,<br>nación Santa, real sacerdocio,<br>linaje escogido por Dios. (2 veces)<br>Para anunciar las virtudes de Aquel<br>que nos llamó de tinieblas a luz (2 vez)</p><p>Admirable, ¡ Somos los hijos de luz!</p>"
+      },
+      {
+        "id":143,
+        "title": "Sublime gracia",
+        "content": "<p>Sublime gracia del Señor<br>que a un infeliz salvó.<br>Fui ciego más hoy veo yo.<br>Perdido y Él me halló.</p><p>Su gracia me enseñó a temer,<br>mis dudas ahuyentó.<br>Oh, cuan precioso fue a mi ser<br>cuando Él me transformó.</p><p>En los peligros o aflicción<br>que yo he tenido aquí<br>su gracia siempre me libró<br>y me guiará feliz.</p><p>Y cuando en Sión por siglos mil,<br>brillando esté cual sol,<br>yo cantaré por siempre allí,<br>su amor que me salvó.</p>"
+      },
+      {
+        "id":144,
+        "title": "Tan cerca de mi",
+        "content": "<p>Tan cerca de mi<br>Tan cerca de mi.<br>Que hasta lo puedo tocar.<br>Jesús está aquí.</p><p>Le hablaré sin miedo al oído,<br> le contaré cosas que hay en mí,<br>y que solo a Él le interesarán,<br>Él es más que un mito para mí.</p><p>Mírale a tu lado caminando<br>y paseándose en la multitud;<br>muchos ciegos van porque no le ven,<br>ciegos de ceguera espiritual.</p>"
+      },
+      {
+        "id":145,
+        "title": "Te alabaré Señor, con todo el corazón",
+        "content": "<p>Te alabaré Señor con todo el corazón,<br>haré de Ti el lema de mi vida. Aleluya.</p><p>El Señor es mi Pastor nada me faltará,<br>a pastos delicados me guiará. Aleluya.</p><p>Cuando venga mi Señor en gloria y majestad,<br>yo le veré y de nuevo cantaré. Aleluya.</p>"
+      },
+      {
+        "id":146,
+        "title": "Te alabaré Señor, con todo mi corazón",
+        "content": "<p>Te alabaré Señor con todo mi corazón,<br>con todo mi corazón, te alabaré Señor.</p><p>Contaré todas tus maravillas,<br>todas tus maravillas. Te alabaré Señor.</p><p>Me alegraré en Ti y me regocijaré,<br>y me regocijaré. Te alabaré Señor.</p><p>Cantaré a Tu nombre, oh Altísimo,<br>oh Altísimo. Te alabaré Señor.</p>"
+      },
+      {
+        "id":147,
+        "title": "Te alabo hoy",
+        "content": "<p>Te alabo hoy. Te alabo hoy.<br>Te doy las gracias por la nueva vida en Ti,<br>porque has perdonado mis pecados,<br>por la vida que me das.<br>Te alabo hoy, te alabo hoy, te alabo hoy.</p>"
+      },
+      {
+        "id":148,
+        "title": "Te amo, Rey",
+        "content": "<p>Te amo, Rey; y levanto mi voz,<br>para adorarte y gozarme en Ti.<br>Regocíjate y escucha, mi Rey.<br>¡ Qué sea un dulce sonar para Ti!</p>"
+      },
+      {
+        "id":149,
+        "title": "Te doy gracias, Señor",
+        "content": "<p>Te doy gracias, Señor,<br>entre todos los pueblos<br>cantaré Salmos a Ti entre las naciones.<br> Porque Tu gran amor<br>es mayor que los cielos,<br>y por siempre, y por siempre Tu eres fiel.</p><p>Te exalto, oh Señor,<br>sobre los cielos,  	<br>de Tu gloria la tierra se llenará. (2 veces)</p><p>De Tu gloria, de Tu gloria, de Tu gloria,<br>de Tu gloria la tierra se llenará.</p>"
+      },
+      {
+        "id":150,
+        "title": "Te exaltamos sobre un trono de alabanza",
+        "content": "<p>Te exaltamos sobre un trono de alabanza,<br>te exaltamos, Oh Señor.<br>Nuestras alabanzas subirán<br>delante de Tu trono, oh Señor. (2 veces)</p><p>Olor fragante, a Ti, Señor,<br>honor y alabanza por siempre daré<br>al que está sentado sobre el Trono de mi <br>Dios.</p><p>Majestuosamente reinas sin igual,<br>Tú eres poderoso, oh Dios.<br>Te proclamaré, te exaltaré,<br>Tú eres el Rey sobre mi corazón.</p>"
+      },
+      {
+        "id":151,
+        "title": "Todo lo que respira alabe al Señor",
+        "content": "<p>Todo lo que respira,<br>alabe al Señor, alabe al Señor (2 veces)<br>Con cánticos de amor eleva hoy tu voz,<br>y sé un adorador de todo corazón (2 veces)<br>Todo lo que respira,<br>alabe al Señor, alabe al Señor (2 veces)<br>Alabe al Señor, alabe al Señor.<br>Amén, amén, amén, amén, amén<br>Amén, amén, amén, amén, amén</p>"
+      },
+      {
+        "id":152,
+        "title": "Te exaltaré, mi Dios, mi Rey",
+        "content": "<p>Te exaltaré mi Dios, mi Rey,<br>y bendeciré Tu nombre,<br>eternamente y para siempre,<br>cada día te bendeciré.<br>Alabaré Tu nombre<br>eternamente y para siempre.</p><p>Grande es Jehová y<br>digno de suprema alabanza,<br>y su grandeza es inescrutable.<br>Cada día te bendeciré.</p><p>Generación a generación<br>celebrará tus obras,<br>y anunciará y anunciará<br>tus poderosos hechos<br>en la hermosura de Tu gloria,<br>y en tus hechos meditaré.</p><p>Del poder de tus hechos<br>estupendos hablarán los hombres,<br>y yo publicaré, yo publicaré Tu grandeza.<br>Proclamarán Tu inmensa bondad,<br>y cantarán Tu justicia.</p>"
+      },
+      {
+        "id":153,
+        "title": "Todo lo que respira alabe al Señor",
+        "content": "<p>Todo lo que respira alabe al Señor.<br>Todo lo que respira alabe al Señor.</p><p>Alabad a Dios en Su santuario,<br>alabadle en la magnificencia de Su firmamento.</p><p>Alabadle por sus proezas,<br>alabadle conforme a la muchedumbre de Su grandeza.</p><p>Alabadle a son de bocina,<br>alabadle con salterio y arpa.</p><p>Alabadle con pandero y danza,<br>alabadle con cuerdas y flautas.</p><p>Alabadle con címbalos resonantes,<br>alabadle con címbalos de júbilo.</p>"
+      },
+      {
+        "id":154,
+        "title": "Toma el pan",
+        "content": "<p>Toma el pan que habla de mí, y al comer, <br>recuérdame.<br>Este pan es mi cuerpo, por ti yo lo entregué.<br>Toma, come, y al comer recuérdame.</p><p>Toma la copa que habla de mí, y al beber, <br>recuérdame.<br>Esta copa es mi sangre, por ti la derramé.<br>Toma. Bebe, y al beber recuérdame.</p>"
+      },
+      {
+        "id":155,
+        "title": "Tu amor por mi",
+        "content": "<p>Tu amor por mi es más dulce que la miel,<br>y Tu misericordia es nueva cada día (2 veces)<br>es por eso que te alabo,<br>es por eso que te sirvo,<br>es por eso que te doy todo mi amor (2 veces)</p>"
+      },
+      {
+        "id":156,
+        "title": "Tú eres mi Roca fuerte",
+        "content": "<p>Tú eres mi Roca fuerte.<br>Tú eres mi Roca firme.<br>Tú eres mi Roca y mi Dios. (2 veces)</p><p>Yo te alabo con fidelidad.<br>Yo te alabo con sinceridad.<br>Yo te alabo con integridad, Señor (2 veces)</p>"
+      },
+      {
+        "id":157,
+        "title": "Tú eres mi vida",
+        "content": "<p>Tú eres mi vida,<br>eres mi aliento, mi gozo, mi vida, camino sin fin.<br>Sé que en Ti se encuentra<br>la luz radiante que brilla,<br>que alumbra en la oscuridad.</p><p>Porque Tú, Señor, eres la vida, Señor.<br>Eres camino, Señor. Eres verdad.<br>Sólo a Ti, Señor y a Tu grandeza sin par,<br>quiero entonarte, Señor, esta canción.</p><p>Tú eres mi anhelo,<br>eres la hoguera prendida en mi alma<br>de luz y color.<br>Sé que en Ti se encuentra<br>la fuente hermosa de limpia pureza<br>de grande caudal.</p>"
+      },
+      {
+        "id":158,
+        "title": "Tu fidelidad es grande",
+        "content": "<p>Tu fidelidad es grande.<br>Tu fidelidad incomparable es.<br>Nadie como Tú, bendito Dios.<br>Grande es Tu fidelidad (2 veces)</p>"
+      },
+      {
+        "id":159,
+        "title": "Tu ley esta escrita en mi corazon",
+        "content": "<p>Tu ley está escrita en mi corazón,<br>el hacer Tu voluntad es mi deleite;<br>dame, oh Señor, tus pensamientos<br>los seguiré el resto de mis días.</p><p>Correré por el camino de tu gracia.<br>Confiaré en Tu palabra que es mi guía.<br>Triunfaré en medio de mis enemigos.<br>Y nada me apartará de Ti.</p>"
+      },
+      ,
+      {
+        "id":160,
+        "title": "Tu nombre, oh Dios, exaltaré",
+        "content": "<p>Tu nombre, oh Dios exaltaré,<br>Tu majestad levantaré,<br>por siempre te proclamaré,<br>tus alabanzas celebraré.</p><p>Porque digno, Digno eres Tú,<br>a Ti sea el honor y poder.<br>Porque Digno, Digno eres Tú,<br>recibe adoración, Señor.</p>"
+      },
+      {
+        "id":161,
+        "title": "Únenos Señor",
+        "content": "<p>Únenos Señor, con tu espíritu de amor<br>que tu pueblo sea uno<br>como Tú y el Padre sois.<br>Únenos Señor, haznos ver tu voluntad,<br>danos tu discernimiento<br>y enséñanos a amar.</p><p>Cuando todos somos hermanos<br>y a un mismo Padre alabamos,<br>únenos Señor, con tu espíritu de amor.</p>"
+      },
+      {
+        "id":162,
+        "title": "Un mandamiento nuevo os doy",
+        "content": "<p>Un mandamiento nuevo os doy<br>que os améis unos a otros. (2 veces)<br>Cómo Yo os he amado, como Yo os he amado,<br>que os améis también vosotros.</p><p>Amémonos de corazón,<br>no de labio ni fingido (2 veces)<br>para cuando Cristo venga, para cuando Cristo venga nos encuentre preparados (2 veces)</p><p>¿Cómo puedo yo orar<br>resentido con mi hermano? (2 veces)<br>Dios no escucha la oración, Dios no escucha la oración si no estoy reconciliado (2 veces)</p><p>Un mandamiento nuevo os doy...</p>"
+      },
+      {
+        "id":163,
+        "title": "Unidos",
+        "content": "<p>Unidos, unidos en Tu nombre unidos (2 veces)<br>Por este mundo paz y amor tenemos (2 veces)<br>Unidos, siempre unidos, tomados de la mano,<br>iremos por este mundo cantando al Señor.<br>La gloria de Jesús al fin resplandecerá,<br>y el mundo se llenará de amor y de paz.</p>"
+      },
+      {
+        "id":164,
+        "title": "Un nuevo día nos hizo Yahvé",
+        "content": "<p>Un nuevo día nos hizo Yahvé,<br>regocijémonos en el. (2 veces)</p><p>Alabadle y bendecid Su nombre,<br>por las cosas que hoy va a hacer (2 veces)</p>"
+      },
+      {
+        "id":165,
+        "title": "Ven entre tu pueblo",
+        "content": "<p>Ven entre tu pueblo al momento de estar<br>juntos en Tu nombre reunidos a adorar.</p><p>Une nuestras vidas,<br>llénanos de amor,<br>llénanos del fuego<br>que consuma el temor.</p><p>Entre las naciones tu amado pueblo está<br>ante Tu presencia reunidos a adorar.</p>"
+      },
+      {
+        "id":166,
+        "title": "Ven y alaba a Tu Señor",
+        "content": "<p>Ven y alaba a Tu Señor, alábale de corazón.</p><p>Alábale de corazón es digno de loor. (2 veces)</p>"
+      },
+      {
+        "id":167,
+        "title": "Ven, te invito a cantar al Señor",
+        "content": "<p>Ven te invito a cantar al Señor.<br>Ven te invito a deleitarte en Él.<br>Ven te invito a cantar al Señor<br>con toda tu voz, con todo tu amor.</p>   <p>Suenen violines, toquen trompetas,<br>batid las manos alabad a Dios,<br>hombres y mujeres, niños y ancianos,<br>sanos y enfermos alabad a Dios.</p>"
+      },
+      {
+        "id":168,
+        "title": "Venimos ante Ti, Señor",
+        "content": "<p>Venimos ante Ti, Señor,<br>con corazones sinceros<br>llenos de alabanza y adoración (2 veces)<br>Porque Tú eres Rey de reyes<br>y Señor de señores,<br>sólo Tú eres digno<br>de que todos te adoren (2 veces)</p>"
+      },
+      {
+        "id":169,
+        "title": "Vine a alabar a Dios",
+        "content": "<p>Vine a alabar a Dios. Vine a alabar a Dios<br>Vine a alabar Su nombre,<br>vine a alabar a Dios.<br>Él vino a mi vida en un día muy especial,<br>cambió mi corazón por un nuevo corazón,<br>y esta es la razón por la que digo que:</p><p>¡VINE A ALABAR A DIOS!</p>"
+      },
+      {
+        "id":170,
+        "title": "Voy a cantar a mi Señor",
+        "content": "<p>Voy a cantar a mi Señor,<br>quiero gritar porque Él me amó,<br>le alabaré, Él es mi Dios,<br>no lo puedo olvidar<br>y mi vida será para siempre cantar.</p><p>Yo quiero siempre alabar a Dios,<br>es imposible dejar de cantar<br>son tantas cosas que siempre nos da,<br>tan grande es mi Dios.<br>No importa donde quiera que tú vas<br>allí, contigo, está tu Salvador;<br>no te abandona, no tengas temor.<br>Él es tu Dios.</p><p>Hoy soy feliz, no callaré,<br>es tanto amor que Él me dio;<br>le alabaré, Él es mi Dios,<br>no lo puedo olvidar<br>y mi vida será para siempre cantar.</p>"
+      },
+      {
+        "id":171,
+        "title": "Y si vivimos, para el vivimos",
+        "content": "<p>Y si vivimos, para Él vivimos.<br>Y si morimos, para Él morimos<br>Sea que vivamos, o que muramos,<br>somos del Señor, somos del Señor.</p>"
+      },
+      {
+        "id":172,
+        "title": "Yo celebraré",
+        "content": "<p>Yo celebraré delante del Señor,<br>cantaré un cántico nuevo (2 veces)<br>Yo le alabaré<br>porque Él ha hecho grandes cosas (2 veces)</p>"
+      },
+      {
+        "id":173,
+        "title": "Yo quiero ser, Señor amante",
+        "content": "<p>Yo quiero ser Señor amante,<br>como el barro en manos del alfarero.<br>Toma mi vida hazla de nuevo.<br>Yo quiero ser, yo quiero ser un vaso nuevo.</p>"
+      },
+      {
+        "id":174,
+        "title": "Yo te busqué",
+        "content": "<p>Yo te busqué Señor más descubrí<br>que Tú impulsabas mi alma en ese afán,<br>que no era yo quien te encontraba a Ti,<br>Tú me encontraste a mí.</p><p>Tu mano fuerte se extendió y así<br>tomado de ella sobre el mar crucé;<br>más no era tanto que me asiera a Ti,<br>Tú me alcanzaste a mí.</p><p>Te hallé y seguí, Señor mi amor te di,<br>más solo fue en respuesta a tanto amor,<br>puesto que siempre mi alma estaba en Ti.<br>Siempre me amaste así.</p>"
+      },
+      {
+        "id":175,
+        "title": "A ti, el Alfa y la Omenga",
+        "content": "<p>A Ti, el Alfa y la Omega<br>El principio y el fin,<br>Y el gran “Yo Soy”, me rindo.</p><p>A Ti, el Todopoderoso<br>El que es y que será<br>Y el gran “Yo Soy”, me entrego.</p><p>Yo quiero que gobiernes mi vida<br>Me doy en sacrificio a Ti.<br>Yo quiero que Tú ordenes mi caminar<br>Que siempre viva en Tu voluntad.</p>"
+      },
+      {
+        "id":176,
+        "title": "Al entrar en tu santo lugar",
+        "content": "<p>// Al entrar en tu santo lugar<br>Me asombra que me pueda acerca<br>Para ver tu gloria y tu belleza<br>Y adorarte en intimidad.</p><p>En confianza yo me puedo acercar,<br>De tu mesa quiero participar,<br>Todo lo que puedo hacer es postrarme<br>Y con mis labios proclamar. //</p><p>// Mi pan, mi luz, mi oración<br>Eres Tú, Jesús<br>Mi Dios, mi amor y mi canción<br>Eres Tú, Jesús, solo Tú.//</p>"
+      },
+      {
+        "id":177,
+        "title": "Al estar en la presencia de tu divinidad",
+        "content": "<p>Al estar en la presencia de tu divinidad<br>Al contemplar la hermosura<br>De tu santidad<br>Mi espíritu se alegra en tu majestad<br>//Te adoro a Ti//</p><p>Cuando veo la grandeza<br>De tu dulce amor<br>Y compruebo la pureza de tu corazón<br>Mi espíritu se alegra en tu majestad<br>//Te adoro a ti//</p><p>//Y al estar aquí, delante de Ti, te adoraré<br>Postrado ante Ti,<br>Mi corazón te adora, oh Dios.<br>Y siempre quiero estar, para adorar<br>Y contemplar tu santidad<br>Te adoro a Ti, Señor, te adoro a Ti.//</p>"
+      },
+      {
+        "id":178,
+        "title": "Al que está sentado en el trono que es Jesús",
+        "content": "<p>Al que está sentado en el trono que es Jesús<br>A Él sea la gloria y el imperio.<br>Al que está sentado en el trono que es Jesús<br>A Él sea la gloria y el poder.</p><p>A Ti traigo alabanzas, ¡oh, Jesús!<br>Y te las doy con el corazón<br>A Ti te alabo, solo a Ti, Señor<br>Y te puedo decir, gloria a Ti.</p><p>Gracias porque has hecho para mí<br>Un nuevo día de gozo y paz<br>Y siento a tu Espíritu dentro de mí,<br>Por él puedo decir: Gloria a Ti.</p>"
+      },
+      {
+        "id":179,
+        "title": "Desde el fondo del mar",
+        "content": "<p>Desde el fondo del mar<br>Al más alto lugar<br>Del más hondo abismo<br>Te alabaré.<br>Desde mi corazón,<br>Fuerte o débil esté<br>Cada instante de mi vida<br>Con gozo yo diré:</p><p>Qué Tú eres la Roca eterna<br>Señor sobre cielo y tierra<br>Tú eres Dios.<br>Que toda criatura adore<br>Que toda nación se postre a ti, Señor<br>Tú eres Dios.</p>"
+      },
+      {
+        "id":180,
+        "title": "La única razon de mi adoración",
+        "content": "<p>La única razón de mi adoración eres Tú mi Jesús<br>Mi único motivo para vivir eres Tú mi Señor.<br>Mi única verdad está en Ti,<br>eres mi luz y mi salvación<br>Mi único amor eres Tú Señor,<br>y por siempre te alabaré.</p><p>Tú eres Todopoderoso, eres grande y majestuoso,<br>Eres fuerte, invencible y no hay nadie como Tú.</p>"
+      },
+      {
+        "id":181,
+        "title": "Dios de pactos",
+        "content": "<p>Dios de pactos, que guardas Tus promesas<br>Que cumples Tu palabra<br>Que guías mi destino.<br>Dios de pactos, confío en Tus promesas<br>Descanso en Tu Palabra<br>Por Tu gracia estoy aquí.</p><p>En la intimidad<br>Al abrigo de Tu gloria quiero estar junto a Ti.<br>Al ver Tu santidad<br>Estoy maravillado ante Ti y Tu amor;<br>Nunca más seré igual<br>Al salir de este santísimo lugar.</p><p>Tengo redención<br>Por la sangre que descansa en tu altar para mí.<br>La gracia y el perdón<br>Son los frutos de vivir en comunión y adoración.<br>Nunca más seré igual<br>Al salir de este Santísimo lugar.</p>"
+      },
+      {
+        "id":182,
+        "title": "Eres Tú",
+        "content": "<p>Eres Tú la única razón de mi adoración,<br>¡Oh Jesús!<br>Eres Tú la esperanza que anhelé tener,<br>¡Oh Jesús!<br>Confié en Ti y me has ayudado,<br>tu salvación me has regalado<br>Hoy hay gozo en mi corazón,<br>con mi canto te alabaré.</p><p>//Te alabaré, te glorificaré. <br>Te alabaré, mi buen Jesús.//</p><p>En todo tiempo te alabaré<br>En todo tiempo te adoraré.</p><p>//Te alabaré, te glorificaré. <br>Te alabaré, mi buen Jesús.//</p>"
+      },
+      {
+        "id":183,
+        "title": "Mi Cristo, Mi rey",
+        "content": "<p>Mi Cristo, mi Rey, nadie es como Tú<br>Toda mi vida quiero exaltar<br>Las maravillas de Tu amor.<br>Consuelo, refugio, torre de fuerza y poder<br>Todo mi ser, lo que yo soy<br>Nunca cese de adorar.<br>Cante al Señor toda la creación<br>Honra, poder, majestad sean al Rey<br>Montes caerán y el mar rugirá <br>Al sonar de Tu nombre<br>Canto con gozo al mirar tu poder<br>Por siempre yo te amaré y diré:<br>Incomparables promesas me das, Señor.</p>"
+      },
+      {
+        "id":184,
+        "title": "Oh Señor, tu amor brillando está",
+        "content": "<p>Oh Señor, tu amor brillando está<br>Luce en medio de toda oscuridad.<br>Luz del mundo, Jesús, ilumínanos,<br>Con tu hermosa verdad, ven libéranos.<br>Brilla en mí, brilla en mí.</p><p>¡Brilla Jesús, llénanos de tu gloria eterna!<br>Espíritu, arde en nuestro ser.<br>Río de amor, cubre la Tierra con tu gracia.<br>Extiende, oh Dios, tu Palabra y tu luz.</p><p>Aquí estoy ante tu presencia,<br>Pues tu luz borra mis tinieblas.<br>Por tu sangre en tu luz santa puedo entrar<br>Pruébame, limpia toda mi oscuridad.<br>Brilla en mí, brilla en mí.</p><p>Cuando vemos tu regio resplandor<br>Nuestros rostros reflejan tu esplendor,<br>Y avanzando de gloria en gloria<br>Nuestras vidas reflejan Tu historia.<br>Brilla en mí, brilla en mí.</p>"
+      },
+      {
+        "id":185,
+        "title": "Que seria de mi si no me hubieras alcanzado",
+        "content": "<p>Qué seria de mí si no me hubieras alcanzado<br>Donde estaría hoy si no me hubieras perdonado<br>Tendría un vacío en mi corazón,<br>vagaría sin rumbo, sin dirección</p><p>//Si no fuera por tu gracia y por tu amor//</p><p>Sería como un pájaro herido<br>que se muere en el suelo<br>Sería como un ciervo que brama<br>por agua en un desierto</p><p>//Si no fuera por tu gracia y por tu amor//</p>"
+      },
+      {
+        "id":186,
+        "title": "Somos el pueblo de Dios",
+        "content": "<p>Somos el pueblo de Dios<br>Somos un pueblo especial<br>Llamados para anunciar<br>Las virtudes de Aquel<br>Que nos llamó a Su luz.</p><p>Somos el pueblo de Dios,<br>Su sangre nos redimió<br>Y su Espíritu dio<br>Para darnos poder<br>Y ser testigos de Él.</p><p>Y llevaremos Su gloria<br>A cada pueblo y nación<br>Trayéndoles esperanza<br>y nuevas de salvación.<br>Y Su amor nos impulsa<br>No nos podemos callar<br>Anunciaremos al mundo<br>De su amor y verdad.</p>"
+      },
+      {
+        "id":187,
+        "title": "Toda la tierra te alabará",
+        "content": "<p>Toda la tierra te alabará<br>Los montes y collados te bendecirán<br>Y los abismos proclamarán<br>Que eres Dios del Universo, eres el Señor</p><p>Te labaré, te adoraré,<br>De noche y de día yo te exaltaré<br>Te alabaré, te adoraré<br>Eres Dios, eres Rey, eres el Santo de Israel.</p><p>Eres Dios, eres Rey, eres el Santo de Israel.</p>"
+      },
+      {
+        "id":188,
+        "title": "Tu nombre Cristo exaltare",
+        "content": "<p>Tu nombre Cristo exaltaré<br>Cantaré tus alabanzas<br>Gracias por vivir en mí<br>Gracias por querer salvarnos.</p><p>Del cielo viniste aquí a darnos paz<br>De la tierra a la cruz en mi lugar<br>A la tumba tras morir y a la gloria otra vez<br>Tu nombre Cristo exaltaré.</p>"
+      },
+      {
+        "id":189,
+        "title": "Alza tus ojos y mira",
+        "content": "<p>Alza tus ojos y mira,<br>la cosecha está lista,<br>el tiempo ha llegado,<br>la mies está madura.<br>Esfuérzate y sé valiente,<br>Levántate y predica<br>A todas las naciones <br>Que  Cristo es la vida.</p><p>Y será llena la tierra de Su gloria,<br>Se cubrirá, como las aguas cubren la mar.</p><p>No, no hay otro nombre<br>Dado a los hombres<br>Jesucristo, El es Señor.</p><p>Y será llena la tierra de Su gloria,<br>Se cubrirá, como las aguas cubren la mar</p>"
+      },
+      {
+        "id":190,
+        "title": "Él es excelso",
+        "content": "<p>Él es excelso, de alabaza Digno es<br>Hermosa Santidad solo hay en Él<br>El gozo de la creación.<br>En Su presencia la victoria hemos de hallar,<br>Contra el enemigo nos ayudará;<br>Caemos a sus pies.<br>Señor queremos Tu nombre ensalzar<br>Agradecerte todo lo que has hecho<br>en nuestras vidas,<br>Confiar en Tu inagotable amor,<br>Pues en los cielos y en la tierra<br>Tú eres el Eterno Dios</p>"
+      },
+      {
+        "id":191,
+        "title": "Dios eterno",
+        "content": "<p>A veces te fallé, mas Tú fuiste fiel<br>Tu gracia me levantó, me basta Tu amor<br>Dios eterno, Tu luz por siempre brillará<br>Y Tu gloria incomparable, sin final</p><p>Señor, Tu voluntad permanecerá<br>En Ti me quiero perder, en adoración<br>Dios eterno, Tu luz por siempre brillará<br>Y Tu gloria incomparable, sin final</p><p>De mi corazón te doy el control<br>Consume todo mi interior, Dios<br>Justicia y amor me abrazan, Señor<br>Te amo desde mi interior</p><p>Dios eterno, Tu luz por siempre brillará<br>Y Tu gloria incomparable, sin final<br>El clamor de mi ser es contigo estar<br>Desde mi interior mi alma clamará </p><p>De mi corazón te doy el control<br>Consume todo mi interior, Dios<br>Justicia y amor me abrazan, Señor<br>Te amo desde mi interior.</p><p>Dios eterno, Tu luz por siempre brillará<br>Y Tu gloria incomparable, sin final<br>El clamor de mi ser es contigo estar<br>Desde mi interior mi alma clamará.</p>"
+      },
+      {
+        "id":192,
+        "title": "Eres Santo",
+        "content": "<p>Eres Santo (eres Santo), Poderoso (Poderoso)<br>Eres Digno (eres Digno), te alabaré (te alabaré)<br>Yo te amo (yo te amo), yo te sigo (yo te sigo)<br>Y por siempre (y por siempre),<br>te seguiré (te seguiré)</p><p><b>HOMBRES:</b><br>Y yo canto, y alabo al Rey que es Digno.<br>Yo te amo, te adoro y me postro ante tus pies.<br>Y yo canto, y alabo al Rey que es Digno.<br>Yo te amo, te adoro y me postro ante tus pies<br>Príncipe de Paz, solo vivo para Ti.</p><p><b>MUJERES:</b><br>Eres el Señor, y de reyes, Rey.<br>Poderoso Dios, Cristo Enmanuel<br>Tú, el Gran YO SOY, quien todo creó;<br>Príncipe de Paz, Cordero de Dios.<br>Eres Salvador, vives hoy en mí;<br>Y tu Gracia siempre nos habla de Ti.<br>Eres Alfa, Omega. Principio y Fin.<br>Jesucristo, Mesías. Mi Redentor<br>Príncipe de Paz, solo vivo para Ti</p>"
+      },
+      {
+        "id":193,
+        "title": "Mi deseo",
+        "content": "<p>Diste todo por mí<br>Mis pensamientos, mi sentir,<br>Todo es dedicado a Ti.<br>Cómo fallé en no ver<br>Que Tu amor me rescató,<br>Todo mi ser lo dedico a Ti.</p><p>Señor, quiero poder decir, contigo aquí,<br>Haz Tu voluntad en mí.<br>Quiero poder cantar, poder decir:    <br>Oye mi voz, es mi deseo<br>El estar junto a ti, Dios<br>Ahora y por siempre.<br>Más que cantar, es mi deseo<br>A tu lado estar, a tu lado estar, Cristo.</p>"
+      },
+      {
+        "id":194,
+        "title": "Tú eres mi respirar",
+        "content": "<p>//Tú eres mi respirar//</p><p>Dios, Tu presencia vive en mí.</p><p>//Eres mi Pan, Señor//</p<p>Dios, Tus palabras son para mí.</p><p>Y yo, te anhelo, Señor<br>Y estoy perdido sin Ti</p>"
+      },
+      {
+        "id":195,
+        "title": "Mi Padre me ama tanto",
+        "content": "<p>Mi Padre me ama tanto que<br>Su Hijo dio por mí<br>Por siempre las gracias le daré<br>Me ha dado Su Espíritu y verdad<br>Bendito mi Señor,<br>A su lado nada temeré, y cantaré</p><p>Mi Padre me ama tanto<br>Su amor es eterno y santo<br>Tan grande que no puedo entender<br>Me viste de ropa fina<br>Me anhela y me dio su vida<br>Gloria, Aleluya, Padre fiel</p><p>Mi Padre me ama tanto que<br>Soy su heredero<br>Me ha dado su nombre y su poder<br>Me viste de gloria y de bondad<br>Bendito mi Señor,<br>A mi Dios por siempre exaltaré, y cantaré</p>"
+      },
+      {
+        "id":196,
+        "title": "No hay argumento",
+        "content": "<p>No hay argumento ni juicio contra mí<br>Él con su sangre me vino a redimir<br>Libre de condenación,<br>Ya no soy más un deudor<br>Él ha pagado la deuda por mí.</p><p>Yo era culpable y me otorgó el perdón,<br>Manto de gracia de pronto me cubrió.<br>Mis pecados Él borró,<br>Y mi cuenta canceló.<br>Él ha pagado la deuda por mí.</p><p>//Ahora soy libre,<br>Y esclavo por amor,<br>Precio de sangre<br>Jesús por mi pagó//<br>Él marcó mi corazón<br>Propiedad soy del Señor.</p>"
+      },
+      {
+        "id":197,
+        "title": "Te dare lo mejor de mi vida",
+        "content": "<p>Traemos hoy ante Tu altar nuestras coronas<br>Queremos darte lo mejor de nuestras vidas.<br>Te entregaré mi amor entero,<br>Los sueños que logré alcanzar</p><p>Te daré lo mejor de mi vida<br>Te daré lo mejor cada día.<br>Será mucho más que una canción<br>Mi obediencia es mi mejor adoración</p><p>Traemos hoy ante Tu altar nuestras coronas<br>Queremos darte lo mejor de nuestras vidas<br>Daremos solo las primicias,<br>Pues Tú mereces lo mejor</p><p>Te daré lo mejor de mi vida<br>Te daré lo mejor cada día.<br>Será mucho más que una canción<br>Mi obediencia es mi mejor adoración</p><p>Te daré lo mejor de mí</p><p>Te daré lo mejor de mí</p><p>Te daré lo mejor de mí</p><p>Te daré lo mejor.</p>"
+      },
+      {
+        "id":198,
+        "title": "Heme aquí",
+        "content": "<p>La mies es mucha<br>Hay gran necesidad<br>Y pocos obreros al campo van.<br>Hoy muchos se pierden<br>Viven sin dirección<br>Vagan como ovejas sin pastor</p><p>Heme aquí.... envíame a mí.<br>Heme aquí.... envíame a mí.<br>Yo iré por aquellos<br>Que vagan sin Ti<br>Envíame a mí....Yo iré. </p>"
+      },
+      {
+        "id":199,
+        "title": "Oh Dios de mi alma",
+        "content": "<p>Oh, Dios de mi alma sé Tú mi visión<br>Nada te aparte de mi corazón<br>Noche y día pienso yo en Ti<br>Y Tu presencia es luz para mí</p><p>Sabiduría sé Tú de mi ser<br>Quiero a tu lado mi senda correr<br>Como tu hijo, tenme Señor<br>Siempre morando en un mismo amor</p><p>Sé mi escudo mi espada en la lid<br>Mi única gloria, mi dicha sin fin.<br>Del alma amparo, mi torreón,<br>A las alturas condúceme, oh Dios.</p><p>Riquezas vanas no anhelo Señor,<br>Ni el vano halago de la adulación<br>Tú eres mi herencia, Tú mi perdón<br>Rey de los cielos, tesoro mejor</p>"
+      },
+      {
+        "id":200,
+        "title": "Sumérgeme",
+        "content": "<p>Cansado del camno,<br>sediento de Ti, <br>un desierto he cruzado,<br>sin fuerzas he quedado,<br>vengo a Ti.</p><p>Luché como un soldado,<br>y a veces sufrí,<br>y aunque la lucha he ganado,<br>mi armadura he desgastado,<br>vengo a Ti.</p><p>\\Sumérgeme,<br>en el río de tu Espíritu,<br>necesito refrescar este seco corazón,<br>sediento de Ti//</p><p>Sumérgeme</p>"
+      },
+      {
+        "id":201,
+        "title": "Abre mis ojos",
+        "content": "<p>Abre mis ojos, oh Cristo<br>Abre mis ojos, Señor<br>Yo quiero verte, yo quiero verte. </p><p>Al contemplar Tu Majestad<br>Y el resplandor de Tu Gloria<br>Derrama Tu amor y poder<br>Mientras cantamos Santo, Santo.</p><p>Santo, Santo, Santo<br>Santo, Santo, Santo<br>Yo quiero verte</p>"
+      },
+      {
+        "id":202,
+        "title": "Sublime gracia (nueva versión)",
+        "content": "<p>Sublime gracia del Señor<br>que a un infeliz salvó.<br>Fui ciego mas hoy veo yo.<br>Perdido y Él me halló.</p><p>Aleluya, llueve gracia sobre mí.<br>Aleluya, mis pecados El borró, sí El borró</p><p>Su gracia me enseñó a temer,<br>mis dudas ahuyentó.<br>Oh, cuán precioso fue a mi ser<br>cuando Él me transformó.</p><p>Aleluya, llueve gracia sobre mí.<br>Aleluya, mis pecados El borró, sí El borró</p><p>Y cuando en Sión por siglos mil,<br>brillando esté cual sol,<br>yo cantaré por siempre allí,<br>su amor que me salvó.</p><p>Aleluya, llueve gracia sobre mí<br>Aleluya, mis pecados El borró, sí El borró //</p>"
+      },
+      {
+        "id":203,
+        "title": "Señor, eres fiel",
+        "content": "<p>//Señor eres fiel y tu misericordia es eterna//<br>Gente de toda lengua y nación<br>de generación a generación.</p><p>Coro: <br>Te adoramos hoy aleluya, aleluya <br>te adoramos hoy eres Señor. <br>te adoramos hoy aleluya, aleluya. <br>Te adoramos hoy eres Señor…eres fiel</p>"
+      },
+      {
+        "id":204,
+        "title": "No me soltarás",
+        "content": "<p>Aunque yo esté en el valle de la sombra y dolor<br>Tu amor me quita todo temor<br>Y si llego a estar en el centro de la tempestad<br>No dudaré porque estás aquí<br>Y no temeré del mal pues mi Dios conmigo está<br>Y si Dios conmigo esta ¿De quién temeré?<br>¿De quién temeré?<br>No, no, no me soltarás<br>En la calma o la tormenta<br>No, no, no me soltarás<br>En lo alto o en lo bajo<br>No, no, no me soltarás<br>Dios, tu nunca me dejarás</p><p>Puedo ver la luz que se acerca al que busca de Ti,<br>Gloriosa luz, cual otra no hay<br>Y terminarán los problemas mientras llega el fin<br>Viviremos conociéndote a Ti</p><p>Y no temeré del mal pues mi Dios conmigo está<br>Y si Dios conmigo esta ¿De quién temeré?<br>¿De quién temeré?</p><p>No, no, no me soltarás<br>En la calma o la tormenta<br>No, no, no me soltarás<br>En lo alto o en lo bajo<br>No, no, no me soltarás<br>Dios, tu nunca me dejarás</p><p>Y puedo ver la luz que se acerca al que busca de Ti,<br>Y terminarán los problemas mientras llega el fin<br>Voy a alabarte, voy a alabarte (Solo a Ti) 2 veces</p> <p>No, no, no me soltarás…</p>"
+      },
+      {
+        "id":205,
+        "title": "Él volverá",
+        "content": "<p>Como relámpago que sale del oriente<br>y va al occidente, así será cuando vuelva el Señor,<br>como ladrón que viene en la noche<br>y nadie lo espera, así será cuando vuelva Jesús.</p><p>CORO</p><p>El volverá, y a su gloria me transformará<br>Regresará, y en una nube me arrebatará<br>Con poder y gran gloria, Cristo Jesús volverá.</p><p>Con voz de mando descenderá del cielo<br>y tocará trompeta, así será, cuando vuelva el Señor<br>El llamará a los que han dormido<br>y a los que hemos creído,<br>así será cuando vuelva Jesús.</p><p>CORO</p><p>Velad y orad, el tiempo se acerca,<br>purifícate en El, conságrate a Él,<br>que tu Señor volverá.</p>"
+      },
+      {
+        "id":206,
+        "title": "Yo te exalto",
+        "content": "<p>Fuerte Dios, consolador<br>Príncipe de paz<br>Gran Señor, vencedor,<br>Siempre vives y siempre reinarás.</p><p>Dios te exalto, Dios te exalto<br>Eres todo para mí <br>La creación canta de Ti<br>Dios te exalto, Dios te exalto<br>Te exalto, Cristo mi Rey.</p>"
+      },
+      {
+        "id":207,
+        "title": "Sólo en Jesús está mi fe",
+        "content": "<p>Sólo en Jesús está mi fe<br>Él es la luz y la verdad,<br>Piedra angular, amparo fiel<br>Firme en angustia y tempestad<br>Cuán grande amor, profunda paz,<br>En el temor o adversidad<br>Consolador es mi Señor<br>En su amor yo firme estoy.</p><p>Sólo en Jesús, que se encarnó<br>Del Creador en un bebé<br>Qué don de amor y rectitud<br>Por este mundo herido fue.<br>Cuando en la cruz Jesús murió<br>La ira de Dios propició,<br>Todo pecado Él cargó,<br>Y por su muerte, vivo yo.</p><p>Allí en la tumba Él yació<br>Esclavo de la oscuridad,<br>Lo que derrota pareció<br>Resucitó en gloriosa luz.<br>La gran victoria alcanzó,<br>La maldición de mí quitó,<br>Pues suyo soy, y mío es Él,<br>Cristo con sangre me compró.</p><p>Ya no hay culpa ni temor,<br>Tengo el poder de Cristo en mí<br>Desde nacer, hasta morir<br>Sus manos son mi dirección.<br>No hay poder, ningún afán<br>Que de Él me pueda separar.<br>Hasta que junto a Él esté,<br>En su Poder me sostendré.</p>"
+      },
+      {
+        "id":208,
+        "title": "Dios del universo",
+        "content": "<p>Dios del Universo, del cielo, tierra y mar<br>Los cielos son tu tabernáculo<br>Gloria al Dios altísimo.</p><p>CORO</p><p>//Dios del cielo, maravilloso Dios,<br>Eres santo, santo<br>La creación muestra tu majestad<br>Eres santo, santo//<br>//Dios de la creación//</p><p>Cuando amanece,<br>He de celebrar tu luz<br>Si tropiezo en tinieblas,<br>Volveré a ver tu luz.</p><p>CORO</p><p>Aleluya al Dios de la creación<br>Aleluya al Dios de la creación<br>Aleluya al Dios de la creación.</p>"
+      },
+      {
+        "id":209,
+        "title": "Este es mi deseo",
+        "content": "<p>Este es mi deseo, honrarte a Ti<br>Con todo mi ser te adoro a Ti<br>Con todas mis fuerzas te alabaré<br>Mi adoración eres Tú</p><p>CORO</p><p>//Hoy te rindo mi ser<br>Te doy mi corazón<br>Yo vivo para Ti.<br>En cada palpitar<br>Mientras haya aliento en mí<br>Dios haz tu obra en mí//</p>"
+      },
+      {
+        "id":210,
+        "title": "Ven",
+        "content": "<p>Ven, es hora de adorarle<br>Ven, abre tu corazón a Él.</p><p>Ven, ante su trono estamos<br>Ven, ante la majestad de Dios<br>Ven...</p><p>//Toda lengua confesará que Él es Dios<br>Las rodillas se doblarán<br>Y un tesoro eterno tendrás en Él<br>Si escoges su amor//<br>Ven...</p>"
+      },
+      {
+        "id":211,
+        "title": "Cristo, cordero vencedor",
+        "content": "<p>Tú, Dios de la Creación<br>Digno de adoración<br>Oh, Cordero Vencedor.</p><p>Dios eres el Gran Yo soy<br>Hoy mi vida te la doy<br>Te la entrego con amor.</p><p>Tú, mi fuerza y poder, das vida a mi ser<br>Tú, Glorioso Emanuel, eres mi amigo fiel.</p><p>Cristo, Cordero Vencedor<br>Estás sentado en tu trono de poder<br>Estás reinando con toda autoridad.<br>Tú reinas, Señor.<br>Tú reinas, Señor.</p>"
+      },
+      {
+        "id":212,
+        "title": "Mi fortaleza",
+        "content": "<p>Sé que en Ti, yo puedo vivir confiado<br>A Tu lado seguro estaré<br>No habrá temor que pueda mis labios sellar<br>por siempre tu nombre alabaré.</p><p>No callaré, te seguiré hasta el final<br>Proclamaré a las naciones de tu amor y majestad.</p><p>Tú eres mi fortaleza, esperanza,<br>Agua eterna que sacia mi sed,<br>Rey de Gloria, Eterno Señor,<br>Dios Poderoso y Fiel Protector.</p><p>Te adoraré por siempre,<br>Pues Tú eres mi vida,<br>La razón que anhelo tener.</p>"
+      },
+      {
+        "id":213,
+        "title": "Tuyo es el reino",
+        "content": "<p>Tuyo es el Reino y la honra <br>y la Gloria por siempre a Ti.<br>Cielo y tierra te adoran, Gran Señor.<br>Cielos abiertos, no hay derrota<br>Y la Gloria es tuya, Señor<br>Nada podrá vencer el nombre de Jesús.</p><p>Rey y Señor, cante toda la creación,<br>Salvador Eterno,<br>Admirable Dios, Admirable Dios.</p><p>Y toda la tierra alabará,<br>Para siempre y tu nombre es la luz<br>Que al mundo hace brillar.<br>Pues la Gloria tuya es,<br>Para siempre Dios<br>La Gloria tuya es.</p>"
+      },
+      {
+        "id":214,
+        "title": "Llévame a la cruz",
+        "content": "<p>Mi Salvador, vengo ante Ti<br>Recuerdo.<br>Tu sangre fue la que pagó<br>Mi precio.</p><p>Lo que un día valoré<br>Lo rindo ante Ti.</p><p>Llévame a la Cruz<br>Donde halle tu amor.<br>Llévame a tus pies<br>Me humillo Dios.<br>Líbrame de mí<br>Tuyo soy Señor.<br>Mi Cristo,<br>Llévame a la Cruz.</p><p>Fuiste como yo<br>Tentado, Señor,<br>Humano.<br>El Verbo llegó,<br>Mi maldad cargó<br>Ahora vives.</p><p>A tu corazón,<br>A tu corazón,<br>Llévame a tu corazón,<br>A tu corazón.</p>"
+      },
+      {
+        "id":215,
+        "title": "Profundo amor del Padre Dios",
+        "content": "<p>Profundo amor del Padre Dios,<br>Tan amplio inmensurable,<br>Que dio a Su Hijo por hacer<br>Tesoro al despreciable.<br>Ardiente pérdida y dolor,<br>Su rostro el Padre aparta,<br>Más hijos a la gloria trae<br>La herida que le marca.</p><p>He aquí el Hombre en la cruz,<br>A hombros mi pecado,<br>Y escucho con pesar mi voz<br>Unirse a cada escarnio.<br>Mi culpa le retuvo allí,<br>La obra completando;<br>Me imparte vida por morir,<br>Ya todo es consumado.</p><p>De dones no me jactaré<br>Por fuerte ni por sabio.<br>De quien murió me gloriaré,<br>Jesús resucitado.<br>¿Por qué obtendré su galardón?<br>No puedo dar respuesta.<br>Más esto sé de corazón:<br>Jesús pagó mi deuda.</p><p>¿Por qué obtendré su galardón?<br>No puedo dar respuesta.<br>Más esto sé de corazón:<br>Jesús pagó mi deuda.</p><p>Más esto sé de corazón:<br>Jesús pagó mi deuda.</p>"
+      },
+      {
+        "id":216,
+        "title": "Bueno es alabar",
+        "content": "<p>Bueno es alabar, oh Señor, Tu Nombre.<br>Darte gloria, honra y honor, por siempre.<br>Bueno es alabarte, Jesús<br>Y gozarme en Tu poder. </p><p>Porque grande eres Tú,<br>Grandes son tus obras,<br>Porque grande eres Tú<br>Grande es tu amor, grande es Tu gloria. </p><p>BUENO ES ALABARTE, SEÑOR.</p>"
+      },
+      {
+        "id":217,
+        "title": "Santo, Santo, Santo",
+        "content": "<p>¡Santo, Santo, Santo! Señor Omnipotente,<br>Siempre el labio mío loores te dará.<br>¡Santo, Santo, Santo! Te adoro, reverente,<br>Dios en Tres personas, Bendita Trinidad.</p><p>¡Santo, Santo, Santo! Por más que estés velado<br>Con sombras y el hombre no te pueda mirar.<br>Santo Tú eres solo y nada hay a tu lado<br>En poder perfecto, pureza y caridad.</p><p>El es Santo, Santo, Santo. Dios de gracia y gloria es.<br>Tú eres Santo, Santo, Santo. Eres Digno de adorar.<br>Tú eres Santo, Santo, Santo, nos postramos ante Ti.<br>Cantamos: Santo, Santo, Santo.</p><p>¡Santo, Santo, Santo! La gloria de Tu nombre<br>Publican tus obras en cielo, tierra y mar.<br>¡Santo, Santo, Santo! Te adore todo hombre<br>Dios en Tres Personas, Bendita Trinidad.</p>"
+      },
+      {
+        "id":218,
+        "title": "¿Quién te compara, Señor?",
+        "content": "<p>¿Quién te compara, Señor? Tú eres el Dios Creador.<br>El Universo formaste al sonar de Tu voz.<br>¿Quién hay más grande que Tú?,<br>¿Paz, Vida, Escudo y Luz?<br>Quien por amor vio a su Hijo morir en la cruz.<7p><p>El cielo te adora en eterna canción.<br>Nosotros, tus hijos, hoy proclamamos:</p><p>No a nosotros, no a otros, solo a Tu Nombre gloria.<br>Te alabamos, nos postramos ante Ti.<br>No a nosotros, no a otros, solo a Tu Nombre gloria.<br>Te alabamos, nos postramos ante Ti.</p>"
+      },
+      {
+        "id":219,
+        "title": "Cámbiame",
+        "content": "<p>Cristo moriste en una cruz,<br>Resucitaste con poder.<br>Perdona mis pecados hoy,<br>Se mi Señor y Salvador</p><p>Cámbiame y hazme otra vez,<br>Ayúdame a serte fiel.<br>Cámbiame y hazme otra vez,<br>Ayúdame a serte fiel.</p>"
+      },
+      {
+        "id":220,
+        "title": "Estoy bien, gloria a Dios",
+        "content": "<p>De paz inundada mi senda esté,<br>O cúbrala un mar de aflicción,<br>Cualquiera que sea mi suerte, dire:<br>“Estoy bien, tengo paz, ¡Gloria a Dios!”.</p><p>Ya venga la prueba o me tiente Satán,<br>No mengua mi fe ni mi amor;<br>Pues Cristo comprende mis luchas, mi afán,<br>Y su sangre obrará en mi favor.</p><p>Estoy bien, ¡Gloria a Dios!<br>Tengo paz en mi ser, ¡Gloria a Dios!.</p><p>Feliz yo me siento al saber que Jesús,<br>Me libra del yugo opresor;<br>Quitó mi pecado, clavado en la cruz;<br>Gloria doy a mi buen Salvador.</p><p>La fe se tornó en feliz realidad<br>Al irse la niebla veloz;<br>Desciende Jesús con Tu gran majestad,<br>¡Aleluya, estoy bien con mi Dios!</p><p>Estoy bien, ¡Gloria a Dios!,<br>Tengo paz en mi ser, ¡Gloria a Dios!.<br>Tengo paz en mi ser, ¡Gloria a Dios!</p>"
+      },
+      {
+        "id":221,
+        "title": "Te alabaré",
+        "content": "<p>Por tu gloria, Tu pureza,<br>Por tu gracia sin final.<br>Alma mía, bendice al Señor,</p><p>Por ser justo, Por ser Santo,<br>Por tu amor y perfección.<br>Alma mía, bendice al Señor.<br>Alma mía, bendice al Señor</p><p><b>Coro I</b>:<br>Te alabaré, bendeciré tu nombre siempre.<br>Te alabaré.<br>Alma mía, bendice al Señor<br>Alma mía, bendice al Señor.</p><p>Por tus pruebas, Tu paciencia, <br>Tu bondad y tu favor.<br>Alma mía, da gracias Dios.</p><p>Por tu muerte, por mi vida,</p><p>Por tu sangre, mi salvación.<br>Alma mía, da gracias a Dios,<br>alma mía, da gracias a Dios</p><p><b>Coro II</b>:<br>Te alabaré, bendeciré tu nombre siempre.<br>Te alabaré.<br>Alma mía, da gracias a Dios<br>Alma mía, da gracias a Dios.</p><p>Por tu angustia, sufrimiento,<br>y tristeza, humilde Rey.<br>Alma mía, alaba al Señor.</><p>Tu victoria,  por Tu triunfo<br>Porque pronto al fin reinarás  </p><p><b>Coro I</b></p>"
+      },
       {
         "id": 222,
         "title": "Ante el trono del Gran Dios",
@@ -568,46 +1171,69 @@ ionicUtilsVar
     ];
     return {
       getAll: function() {
-        return data;
+        var prom = $q.defer()
+        prom.resolve({
+          data: data
+        });
+        return prom.promise
       },
       findByID: function (id){
         var res = [];
+        var prom = $q.defer();
         angular.forEach(data,function(obj){
           if(obj.id == id){
             res.push(obj);
           }
         });
-        return res;
+        prom.resolve({
+          data: res,
+        });
+
+        return prom.promise;
       },
       findByName: function(name){
         var res = [];
-        angular.forEach(data,function(obj){
-
-        });
+        var prom = $q.defer();
         name = name.toUpperCase();
         angular.forEach(data, function(obj) {
           if( obj.title.toUpperCase().indexOf(name) >= 0 ) res.push(obj);
         });
-        return res;
+        prom.resolve({
+          data:res,
+        })
+        return prom.promise;
       },
       getBookmarks: function(){
         var res = [];
+
         var bookmarks = localstorage.getObject('bookmarks');
+        var prom = $q.defer();
 
         if(angular.equals({}, bookmarks)){
-          return res;
+          //Do nothing
+        }
+        else{
+          angular.forEach(data, function(obj){
+            angular.forEach(bookmarks, function(b){
+              if(b == obj.id){
+                res.push(obj);
+              }
+            })
+          });
         }
 
-        angular.forEach(data, function(obj){
-          angular.forEach(bookmarks, function(b){
-            if(b == obj.id){
-              res.push(obj);
-            }
-          })
-        });
+        prom.resolve({
+          data: res
+        })
+        return prom.promise;
 
-        return res;
-
+      },
+      isBookmark: function(id){
+        var bookmarks = localstorage.getObject('bookmarks');
+        if(utils.in_array(id, bookmarks)){
+          return true;
+        }
+        return false;
       }
     }
   }]);

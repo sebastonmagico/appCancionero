@@ -9,7 +9,8 @@ var ionicUtilsVar = angular.module('ionic.utils', []);
 var songbookApp = angular.module("songbookApp", [
   'ionic',
   'ionic.utils',
-  'ngResource']);
+  'ngResource',
+  'ngAnimate']);
 
 songbookApp.config(function($ionicConfigProvider) {
   // remove back button previous title text

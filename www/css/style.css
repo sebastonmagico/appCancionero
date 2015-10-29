@@ -43,6 +43,7 @@
   font-size: 25px !important;
 }
 
+
 /*Dark theme*/
 .darktheme .menu{
   background-color: #444444;
@@ -114,4 +115,24 @@
 
 .darktheme .noresults h4{
   color: white;
+}
+
+/*Animations*/
+
+.songItem.ng-enter {
+  -webkit-animation: fadeInLeft 0.3s;
+  animation: fadeInLeft 0.3s;
+}
+.songItem.ng-enter-stagger {
+  -webkit-animation-delay:20ms;
+  animation-delay:20ms;
+
+  /* override to make sure it's not inherited from other styles */
+  -webkit-animation-duration:0;
+  animation-duration:0;
+}
+
+.songItem.ng-leave {
+  -webkit-animation: fadeOut 0.3s;
+  animation: fadeOut 0.3s;
 }
