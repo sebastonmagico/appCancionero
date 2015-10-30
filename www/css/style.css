@@ -125,8 +125,8 @@
 /*Animations*/
 
 .songItem.ng-enter {
-  -webkit-animation: fadeInLeft 0.3s;
-  animation: fadeInLeft 0.3s;
+  -webkit-animation: fadeInLeft 0.2s;
+  animation: fadeInLeft 0.2s;
 }
 .songItem.ng-enter-stagger {
   -webkit-animation-delay:20ms;
@@ -137,12 +137,36 @@
   animation-duration:0;
 }
 
-.songItem.ng-leave {
-  -webkit-animation: fadeOut 0.3s;
-  animation: fadeOut 0.3s;
+.songItem.ng-leave{
+  -webkit-animation: fadeOut 0.2s;
+  animation: fadeOut 0.2s;
 }
 
+
+.homeImage.ng-leave {
+  -webkit-animation: fadeOutUp 0.3s;
+  animation: fadeOutUp 0.3s;
+}
+
+
+.paquito{
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10+,Safari5.1+ */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C */
+  padding-bottom: 30px;
+}
+
+
 /* Home */
+.homeImageContainer{
+  height: 250px;
+}
+
+.spinnerContainer{
+  text-align: center;
+  padding-top: 50px;
+}
+
 .homeImage{
   width: 100%;
   min-height: 250px;
@@ -254,7 +278,6 @@
 
 .homeTitle h3{
   color: white;
-  background-color:rgba(0, 0, 0, 0.3);
   padding: 3px 7px;
   display: inline-block;
 }
