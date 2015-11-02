@@ -10,6 +10,10 @@ songbookApp.controller('HomeCtrl', function($scope, utils, newBook, $state, $tim
         }, 500);
       })
 
+      curl.getVerse().then(function(data){
+        debugger;
+      });
+
     };
 
     $scope.goToSong = function(songID){
