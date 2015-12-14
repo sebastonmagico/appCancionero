@@ -5,22 +5,23 @@
       <div class="spinnerContainer" ng-if="!setted">
         <ion-spinner icon="spiral"></ion-spinner>
       </div>
-      <div class="homeImage animated fadeIn {{randomClass}}" ng-click="goToSong(randomSong.id);" ng-if="setted" on-swipe-left="reloadSlider();">
+      <div class="homeImage animated fadeIn {{randomClass}}" ng-click="goToSong(randomSong.id);" ng-if="setted" on-swipe-left="reloadSlider();" style="height: {{ innerHeight }}px;">
         <div class="paquito">
-          <div class="homeSubtitle" ng-show="setted">Sugerencia</div>
+          <div class="homeSubtitle" ng-show="setted"></div>
           <div class="homeCircle" ng-show="setted">{{randomSong.id}}</div>
-          <div class="homeTitle"ng-show="setted"><h3>{{randomSong.title}}</h3></div>
+          <div class="homeTitle"ng-show="setted"><h1>{{randomSong.title}}</h1></div>
+          <div class="containerVerse">
+            <div class="spinnerContainer" ng-if="!verseSetted">
+              <ion-spinner icon="spiral"></ion-spinner>
+            </div>
+            <div class="bodyVerse" ng-if="verseSetted">
+              <div class="" ng-bind-html="verse.text"></div>
+              <div>
+                {{verse.reference}}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-
-    <div class="spinnerContainer" ng-if="!verseSetted">
-      <ion-spinner icon="spiral"></ion-spinner>
-    </div>
-    <div class="card animated fadeIn" ng-if="verseSetted">
-      <div class="item item-text-wrap" ng-bind-html="verse.text"></div>
-      <div class="item item-divider">
-        {{verse.reference}}
       </div>
     </div>
 

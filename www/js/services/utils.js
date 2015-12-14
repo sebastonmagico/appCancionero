@@ -15,7 +15,7 @@ songbookApp.factory('utils', ['mainSettings', 'localstorage', '$q','$rootScope',
       getRandom: function(init, end){
         return Math.floor((Math.random() * end) + init);
       },
-      
+
       getVerse: function(){
         return $http({
           method: 'GET',
