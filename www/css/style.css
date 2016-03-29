@@ -149,13 +149,6 @@
 }
 
 
-.paquito{
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10+,Safari5.1+ */
-  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C */
-  height: 94%;
-}
-
 
 /* Home */
 .homeImageContainer{
@@ -171,19 +164,22 @@
   width: 100%;
   text-align: center;
   color: white;
+  -webkit-transition: background-image 0.3s ease-in-out;
+  transition: background-image 0.3s ease-in-out;
 
 }
 
 .homeBack1{
-  background: url(/img/image1.jpg) no-repeat center center fixed;
+  background:url(/img/image1.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
 }
 
 .homeBack2{
-  background: url(/img/image2.jpg) no-repeat center center fixed;
+  background: url(/img/image2.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -191,7 +187,7 @@
 }
 
 .homeBack3{
-  background: url(/img/image3.jpg) no-repeat center center fixed;
+  background: url(/img/image3.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -199,7 +195,7 @@
 }
 
 .homeBack4{
-  background: url(/img/image4.jpg) no-repeat center center fixed;
+  background: url(/img/image4.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -207,7 +203,7 @@
 }
 
 .homeBack5{
-  background: url(/img/image5.jpg) no-repeat center center fixed;
+  background: url(/img/image5.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -215,7 +211,7 @@
 }
 
 .homeBack6{
-  background: url(/img/image6.jpg) no-repeat center center fixed;
+  background: url(/img/image6.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -223,7 +219,7 @@
 }
 
 .homeBack7{
-  background: url(/img/image7.jpg) no-repeat center center fixed;
+  background: url(/img/image7.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -231,7 +227,7 @@
 }
 
 .homeBack8{
-  background: url(/img/image8.jpg) no-repeat center center fixed;
+  background: url(/img/image8.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -239,7 +235,7 @@
 }
 
 .homeBack9{
-  background: url(/img/image9.jpg) no-repeat center center fixed;
+  background: url(/img/image9.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -247,25 +243,29 @@
 }
 
 .homeBack10{
-  background: url(/img/image10.jpg) no-repeat center center fixed;
+  background: url(/img/image10.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
+.homeCircleContainer{
+  display: table;
+  margin: 20px auto 10px auto;
+}
+
 .homeCircle{
   border-radius: 50%;
-  background-color: #007aff;
+  border: solid 2px #ffffff;
   color: white;
   width: 150px;
   height: 150px;
-  padding-top: 17%;
   text-align: center;
-  margin: 0px auto 15px auto;
-  display: block;
+  display: table-cell;
+  vertical-align: middle;
   font-size: 5em;
-
+  font-weight: 200;
 }
 
 .homeSubtitle{
@@ -284,14 +284,14 @@
   color: white;
   padding: 3px 7px;
   display: inline-block;
+  font-weight: 200;
 }
 
 .bodyVerse{
-  margin-top: 7%;
-  padding: 0px 5%;
-  font-style: italic;
+  font-weight: 200;
   font-size: 1.4em;
   color: white;
+  text-align: center;
 }
 
 .bodyVerse h3{
@@ -309,5 +309,16 @@ h3.s, h3.d{
   font-size: 0.9em;
 }
 
+.homeFooter{
+  height: auto;
+  padding-top:15px;
+  padding-bottom:15px;
+}
+.containerVerse{
+  display: block;
+  width: 100%;
+  margin-top:20%;
+  padding: 5px 15px;
+}
 
 

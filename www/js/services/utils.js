@@ -1,6 +1,7 @@
 songbookApp.factory('utils', ['mainSettings', 'localstorage', '$q','$rootScope', '$http', function(mainSettings, localstorage,$q, $rootScope, $http) {
 
-  var versesApi = "http://backCancionero.eu-gb.mybluemix.net";
+  //var versesApi = "http://backCancionero.eu-gb.mybluemix.net";
+  var versesApi = "http://localhost:9500";
 
     return {
       in_array: function(elem, array){
