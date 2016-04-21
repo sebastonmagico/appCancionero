@@ -28,6 +28,9 @@
 
 .song_list_item_title{
   margin-top: 10px !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .bookmarked{
   text-align: center;
@@ -49,22 +52,16 @@
 }
 
 
+.song_content{
+  padding: 5px 10px;
+}
+
 /*Dark theme*/
 .darktheme .menu{
   background-color: #444444;
   color: white;
 }
 
-.darktheme .bar.bar-stable{
-  border-color: #a5a5a5;
-  background-color: #212121;
-  background-image: linear-gradient(0deg, #212121, #212121 50%, transparent 50%);
-  color: white;
-}
-
-.darktheme .bar.bar-stable .title{
-  color: white;
-}
 
 .darktheme .item{
   border-color: #a5a5a5;
@@ -76,9 +73,6 @@
   background-color: #444444;
 }
 
-.darktheme .bar-stable .button.button-clear {
-  color: white;
-}
 
 .darktheme .song_list_item_title{
   color:white;
@@ -252,7 +246,7 @@
 
 .homeCircleContainer{
   display: table;
-  margin: 20px auto 10px auto;
+  margin: 20% auto 10px auto;
 }
 
 .homeCircle{
@@ -294,16 +288,6 @@
   text-align: center;
 }
 
-.bodyVerse h3{
-  color: white;
-  text-decoration:underline;
-  font-size: 1.4em;
-  line-height: 0.7em;
-}
-
-.v{
-  display:none;
-}
 
 h3.s, h3.d{
   font-size: 0.9em;
@@ -314,11 +298,50 @@ h3.s, h3.d{
   padding-top:15px;
   padding-bottom:15px;
 }
+
 .containerVerse{
   display: block;
   width: 100%;
-  margin-top:20%;
   padding: 5px 15px;
+  font-size: 0.85em;
+  line-height: 0.9em;
 }
+
+.verse-content{
+  line-height: 1em;
+  font-weight: 200;
+  font-size: 1.05em;
+}
+
+.verse-book{
+  margin-top: 5%;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.custom-sidebar-footer{
+  background-color: transparent !important;
+  border:none;
+  background-image: none !important;
+  height: auto;
+  position: absolute;
+  z-index: 2147483647;
+
+}
+
+.custom-sidebar-footer .image-container .logo{
+  display: block;
+  width: 60%;
+  margin: 0px auto;
+}
+
+.verseSeparator{
+  border-top: solid 1px white;
+  width: 50%;
+  margin:0px auto 5% auto;
+  height: 1px;
+}
+
+
 
 

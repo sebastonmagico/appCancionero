@@ -14,7 +14,7 @@ songbookApp.factory('utils', ['mainSettings', 'localstorage', '$q','$rootScope',
         return counter > 0 ? true :  false;
       },
       getRandom: function(init, end){
-        return Math.floor((Math.random() * end) + init);
+        return Math.floor(Math.random()*(end-init+1)+init);
       },
 
       getVerse: function(){

@@ -96,6 +96,10 @@ songbookApp.controller('NewbookCtrl', function($scope, $ionicPopup, $timeout, ne
       });
     };
 
+    $scope.showDetail = function(songID){
+       console.log(songID); 
+    }
+
 
 
 

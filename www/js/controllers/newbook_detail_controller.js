@@ -2,7 +2,7 @@ songbookApp.controller('NewbookDetailCtrl', function($scope, $ionicPopup, $timeo
 
     $scope.init = function(){
       newBook.findByID($stateParams.id).then(function(data){
-        $scope.data = data.data;
+        $scope.data = data.data[0];
         $scope.settings = mainSettings.get();
         $scope.isBookmark = newBook.isBookmark($stateParams.id);
       });
@@ -39,7 +39,6 @@ songbookApp.controller('NewbookDetailCtrl', function($scope, $ionicPopup, $timeo
                   mainSettings.saveBookmarks($scope.bookmarks);
                   $scope.isBookmark = false;
                   $ionicPopup.alert({
-                    title: '<h3>Éxito!</h3>',
                     template: 'Esta canción ya no pertenece a tu lista de favoritos'
                   })
                 }
@@ -50,7 +49,6 @@ songbookApp.controller('NewbookDetailCtrl', function($scope, $ionicPopup, $timeo
                   mainSettings.saveBookmarks($scope.bookmarks);
                   $scope.isBookmark = true;
                   $ionicPopup.alert({
-                    title: '<h3>Éxito!</h3>',
                     template: 'Esta canción se ha añadido a tu lista de favoritos'
                   });
                 }

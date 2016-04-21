@@ -1,11 +1,11 @@
-songbookApp.controller('HomeCtrl', function($scope, utils, newBook, $state, $timeout, $window) {
-
+songbookApp.controller('HomeCtrl', function($scope, utils, newBook, $state, $timeout, $window, CONSTANTS) {
+    
     $scope.init = function(){
       $scope.innerHeight = $window.innerHeight;
       $scope.setted = false;
 
       //$scope.verseSetted = false;
-      newBook.findByID(utils.getRandom(1,233)).then(function(data){
+      newBook.findByID(utils.getRandom(CONSTANTS.SONGBOOK_INITIAL_LIMIT,CONSTANTS.SONGBOOK_FINAL_LIMIT)).then(function(data){
         $timeout(function(){
           $scope.randomSong = data.data[0];
           $scope.randomClass = 'homeBack' + utils.getRandom(1,10);
@@ -31,11 +31,13 @@ songbookApp.controller('HomeCtrl', function($scope, utils, newBook, $state, $tim
 
     $scope.reloadSlider = function(){
       $scope.setted = false;
-      newBook.findByID(utils.getRandom(1,233)).then(function(data){
+      $scope.verseSetted = false;
+      newBook.findByID(utils.getRandom(CONSTANTS.SONGBOOK_INITIAL_LIMIT,CONSTANTS.SONGBOOK_FINAL_LIMIT)).then(function(data){
         $timeout(function(){
           $scope.randomSong = data.data[0];
           $scope.randomClass = 'homeBack' + utils.getRandom(1,10);
           $scope.setted = true;
+          $scope.verseSetted = true;
         }, 500);
       })
     };

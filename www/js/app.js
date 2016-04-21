@@ -10,7 +10,8 @@ var songbookApp = angular.module("songbookApp", [
   'ionic',
   'ionic.utils',
   'ngResource',
-  'ngAnimate']);
+  'ngAnimate',
+  'customConstants']);
 
 songbookApp.config(function($ionicConfigProvider, $httpProvider) {
   // remove back button previous title text

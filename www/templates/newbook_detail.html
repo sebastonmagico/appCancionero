@@ -1,22 +1,23 @@
-<ion-view view-title="{{data[0].title}}" ng-init="init();" cache-view="false">
+<ion-view cache-view="false" ng-init="init();" >
+  <ion-nav-title>{{data.title}}</ion-nav-title>
   <ion-nav-buttons side="right">
-    <button class="button button-clear ion-gear-a mybigbutton" ng-click="showActionSheet();"></button>
+    <button class="button button-clear ion-more mybigbutton" ng-click="showActionSheet();"></button>
   </ion-nav-buttons>
   <ion-content>
     <style>
-      .song_content{
-        font-size: {{settings['font-size']}}px;
-        line-height: {{settings['line-height']}}px;
-        padding: 25px;
-      }
-      .song_content p{
-        margin-bottom: {{settings['line-height']+5}}px;
-      }
-
+        .song_content{
+          font-size: {{settings['font-size']}}px;
+          line-height: {{settings['line-height']}}px;
+          padding: 25px;
+        }
+        .song_content p{
+          margin-bottom: {{settings['line-height']+5}}px;
+        }
     </style>
+
     <div class="row">
       <i class="ion-heart centeredIcon" ng-show="isBookmark"></i>
     </div>
-    <div class="song_content" ng-bind-html="data[0].content"></div>
+    <div class="song_content" ng-bind-html="data.content"></div>
   </ion-content>
 </ion-view>
